@@ -16,6 +16,9 @@ use \App\Http\Controllers\AuthController;
 
 Route::get('/', [AuthController::class, 'index']);
 
+//forgot password
+Route::get('forgot-password', [AuthController::class, 'ForgotPassword']);
+
 
 
 
