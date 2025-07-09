@@ -36,14 +36,14 @@
         </div>
         <span style="color: red;">{{ $errors->first('name') }}</span>
         <div class="input-group mb-3">
-          <input type="email" class="form-control" placeholder="Email" name="email" value="{{ old('email') }}" required>
+          <input type="email" class="form-control" placeholder="Email" name="email" value="{{ old('email') }}" onblur="duplicateEmail(this)" required>
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
             </div>
           </div>
         </div>
-        <span style="color: red;">{{ $errors->first('email') }}</span>
+        <span class="duplicate_message" style="color: red;">{{ $errors->first('email') }}</span>
         <div class="input-group mb-3">
           <input type="password" class="form-control" placeholder="Password" name="password" required>
           <div class="input-group-append">
@@ -93,5 +93,32 @@
 <script src="{{ url('public/backend/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <!-- AdminLTE App -->
 <script src="{{ url('public/backend/dist/js/adminlte.min.js') }}"></script>
+
+<script type="text/javascript">
+  function duplicateEmail(element) {
+    let email = $(element).val();
+    $.ajax({
+        type: 'POST',
+        url:"{{ url('check-email') }}",
+        data: {
+          email:email,
+          _token:"{{ csrf_token() }}",
+        },
+        dataType:'json',
+        success:function(res) {
+          if(res.exist) {
+            $('.duplicate_message').html('This email has already been taken. Try another.');
+          }else{
+            $('.duplicate_message').html('');
+          }
+        },
+        error:function(jqXHR, exception) {
+
+        },
+    });
+      
+  }
+
+</script>
 </body>
 </html>

@@ -42,6 +42,19 @@ class AuthController extends Controller {
     return redirect('/')->with('success', 'Register Successfully');
 }//end
 
+//check email 
+public function CheckEmail(Request $request) {
+  $email = $request->input('email');
+  $isExist = User::where('email', $email)->first();
+
+  if($isExist) {
+    return response()->json(array('exist' => true));
+  }else{
+    return response()->json(array('exist' => false));
+  }
+
+}//end
+
 
 }
 

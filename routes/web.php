@@ -22,6 +22,8 @@ Route::get('forgot-password', [AuthController::class, 'ForgotPassword']);
 Route::get('register', [AuthController::class, 'Register']);
 //store register
 Route::post('register_post', [AuthController::class, 'StoreRegister']);
+//check email if already in db
+Route::post('check-email', [AuthController::class, 'CheckEmail']);
 
 
 
