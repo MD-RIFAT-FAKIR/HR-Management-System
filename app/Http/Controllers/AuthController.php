@@ -12,6 +12,11 @@ class AuthController extends Controller {
   public function ForgotPassword() {
     return view('forgotPassword');
   }//end
+
+  //register
+  public function Register() {
+    return view('register');
+  }
 }
 
 

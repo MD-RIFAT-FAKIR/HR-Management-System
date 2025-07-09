@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Human Resource | Forgot Password</title>
+  <title>Human Resource | Register</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -22,14 +22,30 @@
   <!-- /.login-logo -->
   <div class="card">
     <div class="card-body login-card-body">
-      <p class="login-box-msg">Forgot Password</p>
+      <p class="login-box-msg">Register a new membership</p>
 
       <form action="" method="post">
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="Name">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-user"></span>
+            </div>
+          </div>
+        </div>
         <div class="input-group mb-3">
           <input type="email" class="form-control" placeholder="Email">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <input type="password" class="form-control" placeholder="Password">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-lock"></span>
             </div>
           </div>
         </div>
@@ -40,17 +56,17 @@
           </div>
           <!-- /.col -->
           <div class="col-4">
-            <button type="submit" class="btn btn-primary btn-block">Forgot</button>
+            <button type="submit" class="btn btn-primary btn-block">Register</button>
           </div>
           <!-- /.col -->
         </div>
       </form>
 
       <p class="mb-1">
-        <a href="{{ url('/') }}">Sign In</a>
+        <a href="{{ url('forgot-password') }}">I forgot my password</a>
       </p>
       <p class="mb-0">
-        <a href="{{ url('register') }}" class="text-center">Register a new membership</a>
+        <a href="{{ url('/') }}" class="text-center">Sign In</a>
       </p>
     </div>
     <!-- /.login-card-body -->
