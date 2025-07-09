@@ -20,7 +20,8 @@ Route::get('/', [AuthController::class, 'index']);
 Route::get('forgot-password', [AuthController::class, 'ForgotPassword']);
 //register
 Route::get('register', [AuthController::class, 'Register']);
-
+//store register
+Route::post('register_post', [AuthController::class, 'StoreRegister']);
 
 
 
