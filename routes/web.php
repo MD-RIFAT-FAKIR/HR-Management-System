@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\AuthController;
+use App\Http\Controllers\backend\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +25,13 @@ Route::get('register', [AuthController::class, 'Register']);
 Route::post('register_post', [AuthController::class, 'StoreRegister']);
 //check email if already in db
 Route::post('check-email', [AuthController::class, 'CheckEmail']);
+//hr login post
+Route::post('login/hr', [AuthController::class, 'LoginPost']);
+
+//Auth HR route
+Route::group(['middleware' => 'admin'], function() {
+  Route::get('admin/dashboard' , [AdminController::class, 'AdminDashboard']);
+});
 
 
 

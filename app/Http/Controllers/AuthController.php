@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Hash;
 use Str;
+use Auth;
 
 
 class AuthController extends Controller {
@@ -53,6 +54,19 @@ public function CheckEmail(Request $request) {
     return response()->json(array('exist' => false));
   }
 
+}//end
+
+//hr login 
+public function LoginPost(Request $request) {
+  if(Auth::attempt(['email' => $request->email, 'password' => $request->password ], true)){
+    if(Auth::User()->is_role == '1') {
+      return redirect()->intended('admin/dashboard');
+    }else{
+      return redirect('/')->with('error', 'No HR available.. Please check..!');
+    }
+  }else{
+    return redirect()->back()->with('error', 'Please enter correct credentials.');
+  }
 }//end
 
 
