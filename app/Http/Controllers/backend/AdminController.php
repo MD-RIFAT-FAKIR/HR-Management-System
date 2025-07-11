@@ -10,6 +10,6 @@ class AdminController extends Controller
 {
     public function AdminDashboard()
     {
-        echo "Rifat";
+        return view('backend.dashboard.list');
     }
 }
