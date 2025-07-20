@@ -53,15 +53,15 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item">
-            <a href="{{ url('admin/dashboard') }}" class="nav-link active">
-              <i class="nav-icon fa fa-home"></i>
+            <a href="{{ url('admin/dashboard') }}" class="nav-link {{ (Request::segment(2) == 'dashboard') ? 'active' : ''}} ">
+              <i class="fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
               </p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{ url('admin/employees') }}" class="nav-link">
+            <a href="{{ url('admin/employees') }}" class="nav-link {{ (Request::segment(2) == 'employees') ? 'active' : '' }}">
               <i class="nav-icon fa fa-users"></i>
               <p>
                 Employees

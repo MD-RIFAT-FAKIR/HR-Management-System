@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\AuthController;
 use App\Http\Controllers\backend\AdminController;
+use App\Http\Controllers\backend\EmployeesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,6 +32,8 @@ Route::post('login/hr', [AuthController::class, 'LoginPost']);
 //Auth HR route
 Route::group(['middleware' => 'admin'], function() {
   Route::get('admin/dashboard' , [AdminController::class, 'AdminDashboard']);
+  //employees
+  Route::get('admin/employees', [EmployeesController::class, 'Index']);
 });
 
 //admin logout
