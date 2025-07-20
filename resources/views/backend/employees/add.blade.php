@@ -30,20 +30,21 @@
               <div class="card-header">
                 <h3 class="card-title">Add Employee</h3>
               </div>
-              <form class="form-horaizontal" action="" method="post" enctype="multipart/form-data">
+              <form class="form-horaizontal" action="{{ url('employees/store') }}" method="post" enctype="multipart/form-data">
+                @csrf
                 <div class="card-body">
                   <div class="form-gorup row mt-2">
                     <label class="col-sm-2 col-form-table">First Name<span style="color: red;">*</span>                    
                     </label>
                     <div class="col-sm-10">
-                      <input class="form-control" type="text" name="name" placeholder="Enter First Name" required>
+                      <input class="form-control" type="text" name="name" value="{{ old('name') }}" placeholder="Enter First Name" required>
                     </div>
                   </div>
                   <div class="form-gorup row mt-2">
                     <label class="col-sm-2 col-form-table">Last Name<span style="color: red;"></span>                    
                     </label>
                     <div class="col-sm-10">
-                      <input class="form-control" type="text" name="last_name" placeholder="Enter Last Name">
+                      <input class="form-control" type="text" name="last_name" value="{{ old('last_name') }}" placeholder="Enter Last Name">
                     </div>
                   </div>
                   <div class="form-gorup row mt-2">
@@ -51,20 +52,22 @@
                     </label>
                     <div class="col-sm-10">
                       <input class="form-control" type="email" name="email" placeholder="Enter Email" required>
+                      <span style="color: red;">{{ $errors->first('email') }}</span>
                     </div>
                   </div>
                   <div class="form-gorup row mt-2">
                     <label class="col-sm-2 col-form-table">Phone Number<span style="color: red;"></span>                    
                     </label>
                     <div class="col-sm-10">
-                      <input class="form-control" type="text" name="phone_number" placeholder="Enter Phone Number">
+                      <input class="form-control" type="number" name="phone_number" value="{{ old('phone_number') }}" placeholder="Enter Phone Number">
+                      <span style="color: red;">{{ $errors->first('phone_number') }}</span>
                     </div>
                   </div>
                   <div class="form-gorup row mt-2">
                     <label class="col-sm-2 col-form-table">Hire Date<span style="color: red;">*</span>                    
                     </label>
                     <div class="col-sm-10">
-                      <input class="form-control" type="date" name="hire_date" required>
+                      <input class="form-control" type="date" name="hire_date" value="{{ old('hire_date') }}" required>
                     </div>
                   </div>
                   <div class="form-gorup row mt-2">
@@ -83,14 +86,16 @@
                     <label class="col-sm-2 col-form-table">Salary<span style="color: red;">*</span>                    
                     </label>
                     <div class="col-sm-10">
-                      <input class="form-control" type="text" name="salary" placeholder="Enter Salary" required>
+                      <input class="form-control" type="number" name="salary" placeholder="Enter Salary" value="{{ old('salary') }}"  required>
+                      <span style="color: red;">{{ $errors->first('salary') }}</span>
                     </div>
                   </div>
                   <div class="form-gorup row mt-2">
                     <label class="col-sm-2 col-form-table">Commision PCT<span style="color: red;">*</span>                    
                     </label>
                     <div class="col-sm-10">
-                      <input class="form-control" type="text" name="commision_pct" placeholder="Enter Commision PCT" required>
+                      <input class="form-control" type="number" name="commision_pct" value="{{ old('commision_pct') }}" placeholder="Enter Commision PCT" required>
+                      <span style="color: red;">{{ $errors->first('commision_pct') }}</span>
                     </div>
                   </div>
                   <div class="form-gorup row mt-2">
