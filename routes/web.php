@@ -33,6 +33,9 @@ Route::group(['middleware' => 'admin'], function() {
   Route::get('admin/dashboard' , [AdminController::class, 'AdminDashboard']);
 });
 
+//admin logout
+Route::get('logout', [AuthController::class, 'logout']);
+
 
 
 

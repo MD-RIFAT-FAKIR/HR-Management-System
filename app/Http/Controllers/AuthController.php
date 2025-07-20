@@ -69,6 +69,12 @@ public function LoginPost(Request $request) {
   }
 }//end
 
+//admin logout
+public function logout() {
+  Auth::logout();
+  return redirect('/');
+}
+
 
 }
 
