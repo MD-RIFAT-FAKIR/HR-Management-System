@@ -32,17 +32,26 @@
                 <div class="card-body">
                   <div class="row">
 
+                    <div class="form-gorup col-md-1">
+                      <label>ID</label>
+                      <input type="text" name="id" value="{{ Request()->id }}" class="form-control" placeholder="First Name">
+                    </div>
                     <div class="form-gorup col-md-3">
                       <label>First Name</label>
-                      <input type="text" name="" class="form-control" placeholder="First Name">
+                      <input type="text" name="name" value="{{ Request()->name }}" class="form-control" placeholder="First Name">
                     </div>
 
                     <div class="form-gorup col-md-3">
                       <label>Last Name</label>
-                      <input type="text" name="" class="form-control" placeholder="Last Name">
+                      <input type="text" name="last_name" value="{{ Request()->last_name }}" class="form-control" placeholder="Last Name">
                     </div>
 
                     <div class="form-gorup col-md-3">
+                      <label>Email</label>
+                      <input type="email" name="email" value="{{ Request()->email }}" class="form-control" placeholder="Email">
+                    </div>
+
+                    <div class="form-gorup col-md-2">
                       <button type="submit" class="btn btn-primary" style="margin-top: 30px;">Search</button>
                       <a href="{{ url('admin/employees') }}" class="btn btn-success" style="margin-top: 30px;">Reset</a>
                     </div>
@@ -70,7 +79,7 @@
                     </tr>
                   </thead>
                   <tbody>
-                    @foreach($getRecord as $value)
+                    @forelse($getRecord as $value)
                     <tr>
                       <td>{{ $value->id }}</td>
                       <td>{{ $value->name }}</td>
@@ -83,7 +92,11 @@
                         <a href="" class="btn btn-danger">Delete</a>
                       </td>
                     </tr>
-                    @endforeach
+                    @empty
+                    <tr>
+                      <td colspan="100%" style="color: red;">No Record Found.</td>
+                    </tr>
+                    @endforelse
                   </tbody>
                 </table>
                 <div style="padding: 10px; float: right;">
