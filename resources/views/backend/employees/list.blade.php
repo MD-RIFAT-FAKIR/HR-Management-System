@@ -61,9 +61,12 @@
                 <table class="table table-striped">
                   <thead>
                     <tr>
-                      <th>#</th>
+                      <th>Id</th>
                       <th>First Name</th>
                       <th>Last Name</th>
+                      <th>Email</th>
+                      <th>Role</th>
+                      <th>Actions</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -72,6 +75,13 @@
                       <td>{{ $value->id }}</td>
                       <td>{{ $value->name }}</td>
                       <td>{{ $value->last_name }}</td>
+                      <td>{{ $value->email }}</td>
+                      <td>{{ (!empty($value->is_role) ? 'HR' : 'Employee') }}</td>
+                      <td>
+                        <a href="" class="btn btn-info">View</a>
+                        <a href="" class="btn btn-success">Edit</a>
+                        <a href="" class="btn btn-danger">Delete</a>
+                      </td>
                     </tr>
                     @endforeach
                   </tbody>
