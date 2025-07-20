@@ -9,13 +9,10 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Employees</h1>
+            <h1>Employees</h1>
           </div><!-- /.col -->
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">List</a></li>
-              <li class="breadcrumb-item active">Employees</li>
-            </ol>
+          <div class="col-sm-6" style="text-align: right;">
+            <a href="{{ url('employees/add') }}" class="btn btn-primary">Add Employee</a>
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
@@ -25,30 +22,66 @@
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
-        @include('message')
-        <a href="{{ url('employees/add') }}" class="btn btn-primary">Add Employee</a>
         <div class="row mt-3">
-          <section class="col-lg-12">
+          <section class="col-md-12">
             <div class="card">
               <div class="card-header">
-                <table class="table table-bordered table-hober">
+                <h3 class="card-title">Search Employee</h3>
+              </div>
+              <form method="get" action="">
+                <div class="card-body">
+                  <div class="row">
+
+                    <div class="form-gorup col-md-3">
+                      <label>First Name</label>
+                      <input type="text" name="" class="form-control" placeholder="First Name">
+                    </div>
+
+                    <div class="form-gorup col-md-3">
+                      <label>Last Name</label>
+                      <input type="text" name="" class="form-control" placeholder="Last Name">
+                    </div>
+
+                    <div class="form-gorup col-md-3">
+                      <button type="submit" class="btn btn-primary" style="margin-top: 30px;">Search</button>
+                      <a href="{{ url('admin/employees') }}" class="btn btn-success" style="margin-top: 30px;">Reset</a>
+                    </div>
+
+                  </div>
+                </div>
+              </form>
+            </div>
+            @include('message')
+
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Employee List</h3>
+              </div>
+              <div class="card-body p-0">
+                <table class="table table-striped">
                   <thead>
                     <tr>
-                      <th>ID</th>
+                      <th>#</th>
                       <th>First Name</th>
                       <th>Last Name</th>
-                      <th>Email</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
                       <td>1</td>
-                      <td>Jack</td>
-                      <td>Born</td>
-                      <td>jackborn@email.com</td>
+                      <td>Test</td>
+                      <td>Demo</td>
+                    </tr>
+                    <tr>
+                      <td>1</td>
+                      <td>Test</td>
+                      <td>Demo</td>
                     </tr>
                   </tbody>
                 </table>
+                <div style="padding: 10px; float: right;">
+                    pagination
+                </div>
               </div>
             </div>
           </section>
