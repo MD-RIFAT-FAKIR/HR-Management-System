@@ -42,4 +42,10 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    static public function getRecord() {
+        $return = self::select('users.*')->orderBy('id', 'DESC')->paginate(20);
+
+        return $return;
+    }
 }

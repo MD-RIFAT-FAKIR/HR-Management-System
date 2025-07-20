@@ -67,16 +67,13 @@
                     </tr>
                   </thead>
                   <tbody>
+                    @foreach($getRecord as $value)
                     <tr>
-                      <td>1</td>
-                      <td>Test</td>
-                      <td>Demo</td>
+                      <td>{{ $value->id }}</td>
+                      <td>{{ $value->name }}</td>
+                      <td>{{ $value->last_name }}</td>
                     </tr>
-                    <tr>
-                      <td>1</td>
-                      <td>Test</td>
-                      <td>Demo</td>
-                    </tr>
+                    @endforeach
                   </tbody>
                 </table>
                 <div style="padding: 10px; float: right;">
