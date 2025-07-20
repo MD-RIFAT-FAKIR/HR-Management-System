@@ -11,4 +11,9 @@ class EmployeesController extends Controller
     public function Index() {
         return view('backend.employees.list');
     }
+
+    //employees add
+    public function Add() {
+        return view('backend.employees.add');
+    }
 }
