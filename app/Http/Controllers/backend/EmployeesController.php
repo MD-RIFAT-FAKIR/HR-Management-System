@@ -53,5 +53,10 @@ class EmployeesController extends Controller
     public function ViewEmployee($id) {
         $employee = User::find($id);
         return view('backend.employees.view', compact('employee'));
+    }//end
+
+    public function EditEmployee($id) {
+        $employee = User::find($id);
+        return view('backend.employees.edit', compact('employee'));
     }
 }
