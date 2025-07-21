@@ -33,5 +33,12 @@ class JobsController extends Controller
         $job->save();
 
         return redirect('admin/jobs')->with('success', 'Job Added Successfully');
+    }//end
+
+    //view job
+    public function ViewJob($id) {
+        $job = Job::find($id);
+        return view('backend.jobs.view', compact('job'));
     }
+
 }

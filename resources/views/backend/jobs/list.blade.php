@@ -85,7 +85,7 @@
                       <td>{{$value->max_salary }}</td>                  
                       <td>{{ date('d-m-Y H:i A', strtotime($value->updated_at)) }}</td>                  
                       <td>
-                        <a href="" class="btn btn-info">View</a>
+                        <a href="{{ url('admin/jobs/view', $value->id) }}" class="btn btn-info">View</a>
                         <a href="" class="btn btn-success">Edit</a>
                         <a href="" onclick="return confirm('Are your sure you want to delete')" class="btn btn-danger">Delete</a>
                       </td>
