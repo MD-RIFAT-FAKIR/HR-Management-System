@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\AuthController;
 use App\Http\Controllers\backend\AdminController;
 use App\Http\Controllers\backend\EmployeesController;
+use App\Http\Controllers\backend\JobsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,6 +43,12 @@ Route::group(['middleware' => 'admin'], function() {
   Route::get('admin/employees/edit/{id}', [EmployeesController::class, 'EditEmployee']);
   Route::post('admin/employees/update/{id}', [EmployeesController::class, 'updateEmployee']);
   Route::get('admin/employees/delete/{id}', [EmployeesController::class, 'deleteEmployee']);
+
+  //start jobs all route
+  Route::get('admin/jobs', [JobsController::class, 'Index']);
+
+  //end jobs all route
+  
 
 });
 
