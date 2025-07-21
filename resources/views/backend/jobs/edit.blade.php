@@ -30,7 +30,7 @@
               <div class="card-header">
                 <h3 class="card-title">Edit Job</h3>
               </div>
-              <form class="form-horaizontal" action="{{ url('admin/job/update') }}" method="post" enctype="multipart/form-data">
+              <form class="form-horaizontal" action="{{ url('admin/job/update', $job->id) }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="card-body">
                   <div class="form-gorup row mt-2">
@@ -57,7 +57,7 @@
 
                   <div class="card-footer">
                     <a href="{{ url('admin/jobs') }}" class="btn btn-default">Back</a>
-                    <button type="submit" class="btn btn-primary float-right">Submit</button>
+                    <button type="submit" class="btn btn-primary float-right">Update</button>
                   </div>
                 </div>
               </form>

@@ -47,4 +47,22 @@ class JobsController extends Controller
         return view('backend.jobs.edit', compact('job'));
     }
 
+    //update job
+     public function UpdateJob(Request $request, $id) {
+        $job = $request->validate([
+            'job_title'  => 'required',
+            'min_salary' => 'required',
+            'max_salary' => 'required',
+        ]);
+
+        $job             = Job::find($id);
+        $job->job_title   = trim($request->job_title);
+        $job->min_salary  = trim($request->min_salary);
+        $job->max_salary  = trim($request->max_salary);
+        $job->save();
+
+        return redirect('admin/jobs')->with('success', 'Job Updated Successfully');
+    }
+
+
 }
