@@ -32,7 +32,7 @@
                 <div class="card-body">
                   <div class="row">
 
-                    <div class="form-gorup col-md-1">
+                    <div class="form-gorup col-md-3">
                       <label>ID</label>
                       <input type="text" name="id" value="{{ Request()->id }}" class="form-control" placeholder="Id">
                     </div>
@@ -48,8 +48,16 @@
                       <label>Max Salary</label>
                       <input type="text" name="max_salary" value="{{ Request()->max_salary }}" class="form-control" placeholder="Min Salary">
                     </div>
+                    <div class="form-gorup col-md-3">
+                      <label>From Date</label>
+                      <input type="date" name="start_date" value="{{ Request()->start_date }}" class="form-control">
+                    </div>
+                    <div class="form-gorup col-md-3">
+                      <label>To Date</label>
+                      <input type="date" name="end_date" value="{{ Request()->end_date }}" class="form-control">
+                    </div>
 
-                    <div class="form-gorup col-md-2">
+                    <div class="form-gorup col-md-3">
                       <button type="submit" class="btn btn-primary" style="margin-top: 30px;">Search</button>
                       <a href="{{ url('admin/jobs') }}" class="btn btn-success" style="margin-top: 30px;">Reset</a>
                     </div>
