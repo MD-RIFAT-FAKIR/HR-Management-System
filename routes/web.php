@@ -52,6 +52,8 @@ Route::group(['middleware' => 'admin'], function() {
   Route::post('admin/job/store', [JobsController::class, 'StoreJob']);
   //job view
   Route::get('admin/jobs/view/{id}', [JobsController::class, 'ViewJob']);
+  //job edit
+   Route::get('admin/jobs/edit/{id}', [JobsController::class, 'EditJob']);
 
   
   //end jobs all route

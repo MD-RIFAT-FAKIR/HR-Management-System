@@ -41,4 +41,10 @@ class JobsController extends Controller
         return view('backend.jobs.view', compact('job'));
     }
 
+    //edit job
+    public function EditJob($id) {
+        $job = Job::find($id);
+        return view('backend.jobs.edit', compact('job'));
+    }
+
 }
