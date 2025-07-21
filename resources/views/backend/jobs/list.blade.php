@@ -12,7 +12,7 @@
             <h1>Jobs</h1>
           </div><!-- /.col -->
           <div class="col-sm-6" style="text-align: right;">
-            <a href="{{ url('jobs/add') }}" class="btn btn-primary">Add Jobs</a>
+            <a href="{{ url('admin/jobs/add') }}" class="btn btn-primary">Add Jobs</a>
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->

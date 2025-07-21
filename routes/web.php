@@ -46,6 +46,8 @@ Route::group(['middleware' => 'admin'], function() {
 
   //start jobs all route
   Route::get('admin/jobs', [JobsController::class, 'Index']);
+  //job add
+  Route::get('admin/jobs/add', [JobsController::class, 'AddJob']);
 
   //end jobs all route
   
