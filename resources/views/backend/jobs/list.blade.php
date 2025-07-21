@@ -40,6 +40,14 @@
                       <label>Job Title</label>
                       <input type="text" name="job_title" value="{{ Request()->job_title }}" class="form-control" placeholder="Job Title">
                     </div>
+                    <div class="form-gorup col-md-3">
+                      <label>Min Salary</label>
+                      <input type="text" name="min_salary" value="{{ Request()->min_salary }}" class="form-control" placeholder="Min Salary">
+                    </div>
+                    <div class="form-gorup col-md-3">
+                      <label>Max Salary</label>
+                      <input type="text" name="max_salary" value="{{ Request()->max_salary }}" class="form-control" placeholder="Min Salary">
+                    </div>
 
                     <div class="form-gorup col-md-2">
                       <button type="submit" class="btn btn-primary" style="margin-top: 30px;">Search</button>
@@ -62,6 +70,9 @@
                     <tr>
                       <th>ID</th>
                       <th>Job Title</th>
+                      <th>Min Salary</th>
+                      <th>Max Salary</th>
+                      <th>Created Date</th>
                       <th>Actions</th>
                     </tr>
                   </thead>
@@ -69,6 +80,9 @@
                     <tr>
                       <td>1</td>
                       <td>job title</td>
+                      <td>20000</td>
+                      <td>30000</td>
+                      <td>10-29-26</td>
                       <td>
                         <a href="" class="btn btn-info">View</a>
                         <a href="" class="btn btn-success">Edit</a>
