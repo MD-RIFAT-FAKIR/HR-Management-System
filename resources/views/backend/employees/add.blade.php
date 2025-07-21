@@ -76,9 +76,9 @@
                     <div class="col-sm-10">
                       <select class="form-control" name="job_id" required>
                         <option value="">---  Select Job Title  ---</option>
-                        <option value="1">Frontend Developer</option>
-                        <option value="2">Backend Developer</option>
-                        <option value="3">Full Stack Developer</option>
+                        @foreach($job_title as $value)
+                        <option value="{{ $value->id }}">{{ $value->job_title }}</option>
+                        @endforeach
                       </select>
                     </div>
                   </div>
