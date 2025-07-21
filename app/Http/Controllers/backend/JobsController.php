@@ -62,6 +62,15 @@ class JobsController extends Controller
         $job->save();
 
         return redirect('admin/jobs')->with('success', 'Job Updated Successfully');
+    }//end
+
+    //delete employee
+    //delete employee
+    public function DeleteJob($id) {
+        $job = Job::find($id);
+        $job->delete();
+
+        return redirect()->back()->with('error', 'Record Deleted Successfully');
     }
 
 

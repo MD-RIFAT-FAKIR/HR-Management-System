@@ -87,7 +87,7 @@
                       <td>
                         <a href="{{ url('admin/jobs/view', $value->id) }}" class="btn btn-info">View</a>
                         <a href="{{ url('admin/jobs/edit', $value->id) }}" class="btn btn-success">Edit</a>
-                        <a href="" onclick="return confirm('Are your sure you want to delete')" class="btn btn-danger">Delete</a>
+                        <a href="{{ url('admin/job/delete', $value->id) }}" onclick="return confirm('Are your sure you want to delete')" class="btn btn-danger">Delete</a>
                       </td>
                     </tr>
                     @empty
