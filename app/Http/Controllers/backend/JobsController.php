@@ -10,7 +10,8 @@ class JobsController extends Controller
 {
     //
     public function Index() {
-        return view('backend.jobs.list');
+        $data['getRecord'] = Job::getRecord();
+        return view('backend.jobs.list', $data);
     }
     //add job
     public function AddJob() {

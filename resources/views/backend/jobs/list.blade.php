@@ -77,18 +77,24 @@
                     </tr>
                   </thead>
                   <tbody>
+                    @forelse($getRecord as $value)
                     <tr>
-                      <td>1</td>
-                      <td>job title</td>
-                      <td>20000</td>
-                      <td>30000</td>
-                      <td>10-29-26</td>
+                      <td>{{$value->id }}</td>                     
+                      <td>{{$value->job_title }}</td>                     
+                      <td>{{$value->min_salary }}</td>                     
+                      <td>{{$value->max_salary }}</td>                  
+                      <td>{{ date('d-m-Y H:i A', strtotime($value->updated_at)) }}</td>                  
                       <td>
                         <a href="" class="btn btn-info">View</a>
                         <a href="" class="btn btn-success">Edit</a>
                         <a href="" onclick="return confirm('Are your sure you want to delete')" class="btn btn-danger">Delete</a>
                       </td>
                     </tr>
+                    @empty
+                    <tr>
+                      <td colspan="100%" style="color: red;">No Record Found.</td>
+                    </tr>
+                    @endforelse
                   </tbody>
                 </table>
                 <div style="padding: 10px; float: right;">
