@@ -82,10 +82,10 @@
                 </div>
               </div>
               <div class="form-gorup row mt-2">
-                <label class="col-sm-2 col-form-table">Job ID<span style="color: red;"></span>                    
+                <label class="col-sm-2 col-form-table">Job Tittle<span style="color: red;"></span>                    
                 </label>
                 <div class="col-sm-10">
-                  {{ $employee->job_id }}
+                  {{ $employee->get_job->job_title }}
                 </div>
               </div>
               <div class="form-gorup row mt-2">

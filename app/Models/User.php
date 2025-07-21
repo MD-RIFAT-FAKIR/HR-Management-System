@@ -65,5 +65,10 @@ class User extends Authenticatable
         $return = $return->orderBy('id', 'DESC')->paginate(20);
 
         return $return;
+    }//
+
+    //relation between user table and job tabe to get job's job_title
+    public function get_job() {
+       return $this->belongsTo(Job::class, 'job_id');
     }
 }
