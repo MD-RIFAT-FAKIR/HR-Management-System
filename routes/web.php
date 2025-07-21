@@ -41,7 +41,8 @@ Route::group(['middleware' => 'admin'], function() {
   //employee edit
   Route::get('admin/employees/edit/{id}', [EmployeesController::class, 'EditEmployee']);
   Route::post('admin/employees/update/{id}', [EmployeesController::class, 'updateEmployee']);
-  
+  Route::get('admin/employees/delete/{id}', [EmployeesController::class, 'deleteEmployee']);
+
 });
 
 //admin logout
