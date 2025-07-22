@@ -41,5 +41,14 @@ class JobHistoryController extends Controller
         $user->save();
 
         return redirect('admin/job_history')->with('success', 'Record Added Successfully');
+    }//
+
+    //edit job history
+    public function Edit($id) {
+        $users = User::where('is_role', '=', 0)->get();
+        $jobs = Job::get();
+        $jobHistory = JobHistory::find($id);
+
+        return view('backend.job_history.edit', compact('jobs', 'users', 'jobHistory'));
     }
 }
