@@ -15,6 +15,9 @@ class JobHistory extends Model
     static public function getRecord($request) {
         $return = self::select('job_history.*')->orderBy('id', 'DESC')->paginate(20);
         return $return;
+
+        
+
     }
  
     //relation between jobhistory and user mode to get user name
