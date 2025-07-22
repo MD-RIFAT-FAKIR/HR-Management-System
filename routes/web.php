@@ -58,6 +58,8 @@ Route::group(['middleware' => 'admin'], function() {
    Route::Post('admin/job/update/{id}', [JobsController::class, 'UpdateJob']);
    //job delete
    Route::get('admin/job/delete/{id}', [JobsController::class, 'DeleteJob']);
+   //job export
+   Route::get('admin/jobs/excel', [JobsController::class, 'ExportJob']);
 
   
   //end jobs all route

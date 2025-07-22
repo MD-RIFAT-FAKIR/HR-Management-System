@@ -12,7 +12,7 @@ class Job extends Model
 
     protected $table = 'jobs';
 
-    static public function getRecord() {
+    static public function getRecord($request) {
         $return = self::select('jobs.*');
 
         //job search box start 

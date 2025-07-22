@@ -12,6 +12,12 @@
             <h1>Jobs</h1>
           </div><!-- /.col -->
           <div class="col-sm-6" style="text-align: right;">
+            <form action="{{ url('admin/jobs/excel') }}" method="get">
+               <input type="hidden" name="start_date" value="{{ Request()->start_date }}">
+               <input type="hidden" name="end_date" value="{{ Request()->end_date }}">
+               <a class="btn btn-success" href="{{ url('admin/jobs/excel?start_date='.Request::get('start_date').'&end_date='.Request::get('end_date')) }}">Excel Export</a>
+            </form>
+            <br>
             <a href="{{ url('admin/jobs/add') }}" class="btn btn-primary">Add Jobs</a>
           </div><!-- /.col -->
         </div><!-- /.row -->
