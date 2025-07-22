@@ -20,4 +20,25 @@ class JobHistoryController extends Controller
         $jobs = Job::get();
         return view('backend.job_history.add', compact('jobs', 'users'));
     }
+
+    //store job history 
+    public function Store(Request $request) {
+        $user = $request->validate([
+            'employee_id'   => 'required',
+            'job_id'        => 'required',
+            'start_date'     => 'required',
+            'end_date'      => 'required',
+            'department_id' => 'required',
+        ]);
+
+        $user               = new JobHistory;
+        $user->employee_id   = trim($request->employee_id);
+        $user->job_id        = trim($request->job_id);
+        $user->start_date     = trim($request->start_date);
+        $user->end_date      = trim($request->end_date);
+        $user->department_id = trim($request->department_id);
+        $user->save();
+
+        return redirect('admin/job_history')->with('success', 'Record Added Successfully');
+    }
 }

@@ -49,7 +49,7 @@
                     <label class="col-sm-2 col-form-table">Start Date<span style="color: red;">*</span>                    
                     </label>
                     <div class="col-sm-10">
-                      <input class="form-control" type="date" name="stat_date" value="{{ old('stat_date') }}" required>
+                      <input class="form-control" type="date" name="start_date" value="{{ old('stat_date') }}" required>
                     </div>
                   </div>
                   <div class="form-gorup row mt-2">

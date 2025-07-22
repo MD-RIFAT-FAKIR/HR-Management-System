@@ -18,7 +18,7 @@
       </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->
-
+    @include('message')
     <!-- Main content -->
 
 
