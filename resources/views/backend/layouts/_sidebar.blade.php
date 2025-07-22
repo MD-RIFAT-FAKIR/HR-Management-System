@@ -74,7 +74,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{ url('admin/job_history') }}" class="nav-link">
+            <a href="{{ url('admin/job_history') }}" class="nav-link {{ (Request::segment(2) == 'job_history') ? 'active' : '' }}">
               <i class="nav-icon fa fa-history"></i>
               <p>
                 Job History
