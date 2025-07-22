@@ -18,9 +18,53 @@
       </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->
-    @include('message')
     <!-- Main content -->
-
+<section class="content">
+      <div class="container-fluid">
+        <div class="row mt-3">
+          <section class="col-md-12">
+            @include('message')
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Job History</h3>
+              </div>
+              <div class="card-body p-0">
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th>Id</th>
+                      <th>Employee Name</th>
+                      <th>Start Date</th>
+                      <th>End Date</th>
+                      <th>Job Title</th>
+                      <th>Department Name</th>
+                      <th>Created Date</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    @forelse($getRecord as $value)
+                      <tr>
+                        <td>{{ $value->id }}</td>
+                        <td>{{ $value->employee_id }}</td>
+                        <td>{{ date('d-m-Y', strtotime($value->start_date)) }}</td>
+                        <td>{{ date('d-m-Y', strtotime($value->end_date)) }}</td>
+                        <td>{{ $value->job_id }}</td>
+                        <td>{{ $value->department_id }}</td>
+                        <td>{{ date('d-m-Y H:i A', strtotime($value->created_at)) }}</td>
+                      </tr>
+                      @empty
+                      <tr>
+                        <td colspan="100%" style="color: red;">No Record Found.</td>
+                      </tr>
+                    @endforelse
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
 
     <!-- /.content -->
   </div>

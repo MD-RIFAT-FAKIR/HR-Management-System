@@ -12,5 +12,10 @@ class JobHistory extends Model
 
     protected $table = 'job_history'; //db table name
 
+    static public function getRecord($request) {
+        $return = self::select('job_history.*')->orderBy('id', 'DESC')->paginate(20);
+        return $return;
+    }
+
 }
 

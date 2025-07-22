@@ -11,8 +11,9 @@ use App\Models\JobHistory;
 class JobHistoryController extends Controller
 {
     //
-    public function Index() {
-        return view('backend.job_history.list');
+    public function Index(Request $request) {
+        $data['getRecord'] = JobHistory::getRecord($request);
+        return view('backend.job_history.list', $data);
     }
 
     public function Add() {
