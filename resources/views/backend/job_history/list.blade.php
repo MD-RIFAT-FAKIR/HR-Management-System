@@ -45,7 +45,7 @@
                     @forelse($getRecord as $value)
                       <tr>
                         <td>{{ $value->id }}</td>
-                        <td>{{ $value->employee_id }}</td>
+                        <td>{{ !empty($value->user->name) ? $value->user->name : ''}}{{ !empty($value->user->last_name) ? $value->user->last_name : ''}}</td>
                         <td>{{ date('d-m-Y', strtotime($value->start_date)) }}</td>
                         <td>{{ date('d-m-Y', strtotime($value->end_date)) }}</td>
                         <td>{{ $value->job_id }}</td>

@@ -17,5 +17,10 @@ class JobHistory extends Model
         return $return;
     }
 
+    //relation between jobhistory and user mode to get user name
+    public function user() {
+        return $this->belongsTo(User::class, 'employee_id');
+    }
+
 }
 
