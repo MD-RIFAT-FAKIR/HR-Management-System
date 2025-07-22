@@ -48,7 +48,7 @@
                         <td>{{ !empty($value->user->name) ? $value->user->name : ''}}{{ !empty($value->user->last_name) ? $value->user->last_name : ''}}</td>
                         <td>{{ date('d-m-Y', strtotime($value->start_date)) }}</td>
                         <td>{{ date('d-m-Y', strtotime($value->end_date)) }}</td>
-                        <td>{{ $value->job_id }}</td>
+                        <td>{{ !empty($value->job->job_title) ? $value->job->job_title : '' }}</td>
                         <td>{{ $value->department_id }}</td>
                         <td>{{ date('d-m-Y H:i A', strtotime($value->created_at)) }}</td>
                       </tr>

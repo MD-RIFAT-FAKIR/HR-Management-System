@@ -16,10 +16,14 @@ class JobHistory extends Model
         $return = self::select('job_history.*')->orderBy('id', 'DESC')->paginate(20);
         return $return;
     }
-
+ 
     //relation between jobhistory and user mode to get user name
     public function user() {
-        return $this->belongsTo(User::class, 'employee_id');
+        return $this->belongsTo(User::class, 'employee_id'); 
+    }
+    //relation between jobhistory and job mode to get job title
+    public function job() {
+        return $this->belongsTo(Job::class, 'job_id');
     }
 
 }
