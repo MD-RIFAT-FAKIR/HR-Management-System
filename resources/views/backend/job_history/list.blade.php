@@ -99,8 +99,8 @@
                           {{ date('d-m-Y H:i A', strtotime($value->created_at)) }}
                         </td>
                         <td>
-                        <a href="{{ url('admin/job_history/edit', $value->id) }}" class="btn btn-success">Edit</a>
-                        <a href="{{ url('admin/job/delete', $value->id) }}" onclick="return confirm('Are your sure you want to delete')" class="btn btn-danger">Delete</a>
+                        <a href="{{ url('admin/job_history/edit', $value->id) }}" class="btn btn-success mt-1">Edit</a>
+                        <a href="{{ url('admin/job_history/delete', $value->id) }}" onclick="return confirm('Are your sure you want to delete')" class="btn btn-danger mt-1">Delete</a>
                       </td>
                       </tr>
                       @empty
