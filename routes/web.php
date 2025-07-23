@@ -86,7 +86,10 @@ Route::group(['middleware' => 'admin'], function() {
   Route::get('admin/job_grades/add' , [JobGradeController:: class, 'Add']);
   //job grade store 
   Route::post('admin/job_grades/store', [JobGradeController:: class, 'Store']);
+  //job grade edit
   Route::get('admin/job_grades/edit/{id}', [JobGradeController::class, 'Edit']);
+  //job grade update
+  Route::post('admin/job_grades/update/{id}', [JobGradeController::class, 'Update']);
 
   //end job grade all route
   

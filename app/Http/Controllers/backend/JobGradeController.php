@@ -40,4 +40,14 @@ class JobGradeController extends Controller
         $data = JobGrade::find($id);
         return view('backend.job_grade.edit', compact('data'));
     }
+
+    //job grade update
+    public function Update(Request $request, $id) {
+        $data = JobGrade::find($id);
+        $data->grade_level = trim($request->grade_level);
+        $data->lowest_sal = trim($request->lowest_sal);
+        $data->highest_sal = trim($request->highest_sal);
+        $data->save();
+        return redirect('admin/job_grades')->with('success','Job Grade Updated Successfully');
+    }
 }
