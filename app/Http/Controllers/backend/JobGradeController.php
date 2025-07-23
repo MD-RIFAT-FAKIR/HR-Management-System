@@ -16,4 +16,22 @@ class JobGradeController extends Controller
     public function Add() {
         return view('backend.job_grade.add');
     }
+
+    //store job grades
+    public function Store(Request $request) {
+        $user = $request->validate([
+            'grade_level' => 'required',
+            'lowest_sal' => 'required',
+            'highest_sal' => 'required',
+        ]);
+
+        $user             = new JobGrade;
+        $user->grade_level = trim($request->grade_level);
+        $user->lowest_sal  = trim($request->lowest_sal);
+        $user->highest_sal = trim($request->highest_sal);
+        $user->save();
+
+        return redirect('admin/job_grades')->with('success', 'Job Grade Added Successfully');
+        
+    }
 }
