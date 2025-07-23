@@ -30,7 +30,6 @@
               <form method="get" action="">
                 <div class="card-body">
                   <div class="row">
-
                     <div class="form-gorup col-md-3">
                       <label>ID</label>
                       <input type="text" name="id" value="{{ Request()->id }}" class="form-control" placeholder="Id">
@@ -80,6 +79,7 @@
                       <th>Higest Sal</th>
                       <th>Created Date</th>
                       <th>Updated Date</th>
+                      <th>Actions</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -91,6 +91,10 @@
                     <td>{{ $value->highest_sal  }}</td>
                     <td>{{ date('d-m-Y H:i A', strtotime($value->created_at)) }}</td>
                     <td>{{ date('d-m-Y H:i A', strtotime($value->updated_at)) }}</td>
+                    <td>
+                      <a href="{{ url('admin/job_grades/edit', $value->id) }}" class="btn btn-success mt-1">Edit</a>
+                        <a href="{{ url('admin/job_history/delete', $value->id) }}" onclick="return confirm('Are your sure you want to delete')" class="btn btn-danger mt-1">Delete</a>
+                    </td>
                   </tr>
                     @empty
                     <tr>

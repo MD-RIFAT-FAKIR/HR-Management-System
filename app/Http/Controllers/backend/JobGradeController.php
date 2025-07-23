@@ -32,7 +32,12 @@ class JobGradeController extends Controller
         $user->highest_sal = trim($request->highest_sal);
         $user->save();
 
-        return redirect('admin/job_grades')->with('success', 'Job Grade Added Successfully');
-        
+        return redirect('admin/job_grades')->with('success', 'Job Grade Added Successfully');   
+    }//end
+
+    //job grade edit
+    public function Edit(Request $request, $id) {
+        $data = JobGrade::find($id);
+        return view('backend.job_grade.edit', compact('data'));
     }
 }
