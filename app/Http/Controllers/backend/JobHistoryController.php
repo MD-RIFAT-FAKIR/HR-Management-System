@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Job;
 use App\Models\JobHistory;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\JobHistoryExport;
 
 class JobHistoryController extends Controller
 {
@@ -73,4 +75,10 @@ class JobHistoryController extends Controller
 
         return redirect()->back()->with('error', 'Record Deleted Successfully');
     }
+
+    //excel export
+    public function ExportJobHistory() {
+        return Excel::download(new JobHistoryExport, 'job_history.xlsx');
+    }
+
 }

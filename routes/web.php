@@ -75,11 +75,10 @@ Route::group(['middleware' => 'admin'], function() {
   Route::post('admin/job_history/update/{id}', [JobHistoryController::class, 'Update']);
   //delete job history
   Route::get('admin/job_history/delete/{id}', [JobHistoryController::class, 'Delete']);
-
-
+  //job history export Excel
+  Route::get('admin/job_history/excel', [JobHistoryController::class, 'ExportJobHistory']);
   //end job history all route
   
-
 });
 
 //admin logout
