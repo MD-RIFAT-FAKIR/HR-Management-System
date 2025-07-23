@@ -49,5 +49,13 @@ class JobGradeController extends Controller
         $data->highest_sal = trim($request->highest_sal);
         $data->save();
         return redirect('admin/job_grades')->with('success','Job Grade Updated Successfully');
+    }//end
+
+    //delete job grade
+    public function Delete($id) {
+        $data = JobGrade::find($id);
+        $data->delete();
+        return redirect()->back()->with('error','Job Grade Deleted Successfully');
     }
+
 }

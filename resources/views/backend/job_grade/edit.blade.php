@@ -37,21 +37,21 @@
                     <label class="col-sm-2 col-form-table">Grade Level<span style="color: red;">*</span>                    
                     </label>
                     <div class="col-sm-10">
-                      <input class="form-control" type="text" name="grade_level" value="{{ $data->grade_level }}" placeholder="Grade Level">
+                      <input class="form-control" type="text" name="grade_level" value="{{ $data->grade_level }}" placeholder="Grade Level" required>
                     </div>
                   </div>            
                   <div class="form-gorup row mt-2">
                     <label class="col-sm-2 col-form-table">Lowest Sal<span style="color: red;">*</span>                    
                     </label>
                     <div class="col-sm-10">
-                      <input class="form-control" type="number" name="lowest_sal" value="{{ $data->lowest_sal }}" placeholder="Lowest Sal">
+                      <input class="form-control" type="number" name="lowest_sal" value="{{ $data->lowest_sal }}" placeholder="Lowest Sal" required>
                     </div>
                   </div>            
                   <div class="form-gorup row mt-2">
                     <label class="col-sm-2 col-form-table">Highest Sal<span style="color: red;">*</span>                    
                     </label>
                     <div class="col-sm-10">
-                      <input class="form-control" type="number" name="highest_sal" value="{{ $data->highest_sal }}" placeholder="Highest Sal">
+                      <input class="form-control" type="number" name="highest_sal" value="{{ $data->highest_sal }}" placeholder="Highest Sal" required>
                     </div>
                   </div>            
                   <div class="card-footer">

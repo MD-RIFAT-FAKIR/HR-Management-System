@@ -90,9 +90,9 @@ Route::group(['middleware' => 'admin'], function() {
   Route::get('admin/job_grades/edit/{id}', [JobGradeController::class, 'Edit']);
   //job grade update
   Route::post('admin/job_grades/update/{id}', [JobGradeController::class, 'Update']);
-
+  //job grade delete
+  Route::get('admin/job_grades/delete/{id}', [JobGradeController::class, 'Delete']);
   //end job grade all route
-  
 });
 
 //admin logout
