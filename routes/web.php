@@ -82,6 +82,8 @@ Route::group(['middleware' => 'admin'], function() {
 
   //start job grade all route
   Route::get('admin/job_grades' , [JobGradeController:: class, 'Index']);
+  //job grade add 
+  Route::get('admin/job_grades/add' , [JobGradeController:: class, 'Add']);
 
   //end job grade all route
   

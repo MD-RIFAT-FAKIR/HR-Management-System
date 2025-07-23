@@ -12,7 +12,7 @@
             <h1>Job Grade</h1>
           </div><!-- /.col -->
           <div class="col-sm-6" style="text-align: right;">
-            <a href="{{ url('admin/job_history/add') }}" class="btn btn-primary">Add Job Grade</a>
+            <a href="{{ url('admin/job_grades/add') }}" class="btn btn-primary">Add Job Grade</a>
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
