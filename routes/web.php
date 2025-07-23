@@ -6,6 +6,7 @@ use App\Http\Controllers\backend\AdminController;
 use App\Http\Controllers\backend\EmployeesController;
 use App\Http\Controllers\backend\JobsController;
 use App\Http\Controllers\backend\JobHistoryController;
+use App\Http\Controllers\backend\JobGradeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -78,6 +79,11 @@ Route::group(['middleware' => 'admin'], function() {
   //job history export Excel
   Route::get('admin/job_history/excel', [JobHistoryController::class, 'ExportJobHistory']);
   //end job history all route
+
+  //start job grade all route
+  Route::get('admin/job_grades' , [JobGradeController:: class, 'Index']);
+
+  //end job grade all route
   
 });
 

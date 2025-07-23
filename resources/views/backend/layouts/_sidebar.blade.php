@@ -82,7 +82,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{ url('admin/job_grades') }}" class="nav-link">
+            <a href="{{ url('admin/job_grades') }}" class="nav-link {{ (Request::segment(2) == 'job_grades') ? 'active' : '' }}">
               <i class="nav-icon fa fa-star"></i>
               <p>
                 Job Grades
