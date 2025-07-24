@@ -20,7 +20,7 @@ class Region extends Model
         $return->where('id', '=', Request::get('id'));
       }
       if(!empty(Request::get('region_name'))) {
-        $return->where('region_name','like', '%'.Request::get('') .'%');
+        $return->where('region_name','like', '%'.Request::get('region_name') .'%');
       }
       //end search box
 

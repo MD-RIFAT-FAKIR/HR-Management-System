@@ -29,4 +29,10 @@ class RegionController extends Controller
 
         return redirect('admin/regions')->with('success','Region Added Successfully');
     }
+    
+    public function Edit(Request $request, $id) {
+        $region = Region::findOrFail($id);
+
+        return view('backend.regions.edit', compact('region'));
+    }
 }
