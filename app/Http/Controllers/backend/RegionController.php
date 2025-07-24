@@ -35,4 +35,15 @@ class RegionController extends Controller
 
         return view('backend.regions.edit', compact('region'));
     }
+
+    public function Update(Request $request, $id) {
+        $request->validate([
+            'region_name'=> 'required|string',
+        ]);
+
+        $region             = Region::findOrFail($id);
+        $region->region_name = trim($request->region_name);
+        $region->save();
+        return redirect('admin/regions')->with('success','Region Updated Successfully');
+    }
 }
