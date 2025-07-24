@@ -12,7 +12,7 @@
             <h1>Regions</h1>
           </div><!-- /.col -->
           <div class="col-sm-6" style="text-align: right;">
-            <a href="{{ url('admin/region/add') }}" class="btn btn-primary">Add Region</a>
+            <a href="{{ url('admin/regions/add') }}" class="btn btn-primary">Add Region</a>
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
