@@ -67,7 +67,7 @@
                   @forelse($getRecord as $value)
                   <tr>
                     <td>{{ $value->id  }}</td>
-                    <td>{{ $value->highest_sal  }}</td>
+                    <td>{{ $value->region_name  }}</td>
                     <td>{{ date('d-m-Y H:i A', strtotime($value->created_at)) }}</td>
                     <td>{{ date('d-m-Y H:i A', strtotime($value->updated_at)) }}</td>
                     <td>

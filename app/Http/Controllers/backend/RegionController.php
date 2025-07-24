@@ -17,4 +17,16 @@ class RegionController extends Controller
     public function Add() {
         return view('backend.regions.add');
     }
+
+    public function Store(Request $request) {
+        $request->validate([
+            'region_name'=> 'required|string',
+        ]);
+
+        $region = new Region();
+        $region->region_name = trim($request->region_name);
+        $region->save();
+
+        return redirect('admin/regions')->with('success','Region Added Successfully');
+    }
 }

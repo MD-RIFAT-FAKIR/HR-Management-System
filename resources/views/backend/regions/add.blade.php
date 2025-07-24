@@ -30,14 +30,17 @@
               <div class="card-header">
                 <h3 class="card-title">Add Region</h3>
               </div>
-              <form class="form-horaizontal" action="{{ url('admin/job_grades/store') }}" method="post" enctype="multipart/form-data">
+              <form class="form-horaizontal" action="{{ url('admin/regions/store') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="card-body">
                   <div class="form-gorup row mt-2">
                     <label class="col-sm-2 col-form-table">Region Name<span style="color: red;">*</span>                    
                     </label>
                     <div class="col-sm-10">
-                      <input class="form-control" type="text" name="region_name" value="{{ old('region_name') }}" placeholder="Region Name" required>
+                      <input class="form-control" type="text" name="region_name" value="{{ old('region_name') }}" placeholder="Region Name">
+                      @error('region_name')
+                          <div style="color: red;">{{ $message }}</div>
+                      @enderror
                     </div>
                   </div>                              
                   <div class="card-footer">
