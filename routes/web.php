@@ -101,6 +101,7 @@ Route::group(['middleware' => 'admin'], function() {
   Route::post('admin/regions/store', [RegionController::class,'Store']);
   Route::get('admin/regions/edit/{id}', [RegionController::class, 'Edit']);
   Route::post('admin/regions/update/{id}', [RegionController::class,'Update']);
+  Route::get('admin/regions/delete/{id}', [RegionController::class, 'Delete']);
 
   //end admin region all route
 

@@ -41,9 +41,16 @@ class RegionController extends Controller
             'region_name'=> 'required|string',
         ]);
 
-        $region             = Region::findOrFail($id);
+        $region                 = Region::findOrFail($id);
         $region->region_name = trim($request->region_name);
         $region->save();
         return redirect('admin/regions')->with('success','Region Updated Successfully');
+    }
+
+    public function Delete(Request $request, $id) {
+        $region = Region::findOrFail($id);
+        $region->delete();
+
+        return redirect()->back()->with('error','Region Deleted Successfully');
     }
 }
