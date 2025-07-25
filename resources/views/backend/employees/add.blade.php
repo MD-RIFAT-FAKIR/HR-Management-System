@@ -30,7 +30,7 @@
               <div class="card-header">
                 <h3 class="card-title">Add Employee</h3>
               </div>
-              <form class="form-horaizontal" action="{{ url('employees/store') }}" method="post" enctype="multipart/form-data">
+              <form class="form-horaizontal" action="{{ url('admin/employees/store') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="card-body">
                   <div class="form-gorup row mt-2">
