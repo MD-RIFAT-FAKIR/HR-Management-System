@@ -12,4 +12,12 @@ class Country extends Model
 
     protected $table = 'countries'; //db table name
 
+    static public function getRecord ($request) {
+      $return = self::select('countries.*');
+
+
+      $return = $return->paginate(20);
+      return $return;
+    }
+
 }

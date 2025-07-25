@@ -36,6 +36,40 @@
                 <h3 class="card-title">Countries List</h3>
               </div>
               <div class="card-body p-0">
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th>Id</th>
+                      <th>Country Name</th>
+                      <th>Region Name</th>
+                      <th>Created At</th>
+                      <th>Deleted At</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    @forelse($getRecord as $value)
+                    <tr>
+                      <td>{{ $value->id }}</td>
+                      <td>{{ $value->country_name }}</td>
+                      <td>{{ $value->region_id }}</td>
+                      <td>{{ date('d-m-Y H:i A', strtotime($value->created_at)) }}</td>
+                      <td>{{ date('d-m-Y H:i A', strtotime($value->updated_at)) }}</td>
+                      <td>
+                        <a href="{{ url('admin/employees/edit', $value->id) }}" class="btn btn-success">Edit</a>
+                        <a href="{{ url('admin/employees/delete', $value->id) }}" onclick="return confirm('Are your sure you want to delete')" class="btn btn-danger">Delete</a>
+                      </td>
+                    </tr>
+                    @empty
+                    <tr>
+                      <td colspan="100%" style="color: red;">No Record Found.</td>
+                    </tr>
+                    @endforelse
+                  </tbody>
+                </table>
+                <div style="padding: 10px; float: right;">
+                    {!! $getRecord->appends(Illuminate\Support\Facades\Request::except('page'))->links() !!}
+                </div>
               </div>
             </div>
           </section>
