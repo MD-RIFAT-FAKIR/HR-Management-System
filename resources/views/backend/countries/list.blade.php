@@ -12,7 +12,7 @@
             <h1>Countries</h1>
           </div><!-- /.col -->
           <div class="col-sm-6" style="text-align: right;">
-            <a href="{{ url('admin/jobs/add') }}" class="btn btn-primary">Add Country</a>
+            <a href="{{ url('admin/countries/add') }}" class="btn btn-primary">Add Country</a>
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
