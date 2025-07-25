@@ -20,4 +20,9 @@ class Country extends Model
       return $return;
     }
 
+    //relation between country model and region model inside country mode to get region's table region_name
+    public function region() {
+      return $this->belongsTo(Region::class, 'region_id');
+    }
+
 }
