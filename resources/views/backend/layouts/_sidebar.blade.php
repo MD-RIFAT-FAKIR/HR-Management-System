@@ -98,6 +98,14 @@
             </a>
           </li>
           <li class="nav-item">
+            <a href="{{ url('admin/countries') }}" class="nav-link {{ (Request::segment(2) == 'countries' ? 'active' : '' ) }}">
+              <i class="nav-icon fa fa-flag"></i>
+              <p>
+                Countries
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
             <a href="{{ url('admin/department') }}" class="nav-link">
               <i class="nav-icon fa fa-building"></i>
               <p>
@@ -105,14 +113,7 @@
               </p>
             </a>
           </li>
-          <li class="nav-item">
-            <a href="{{ url('admin/countries') }}" class="nav-link">
-              <i class="nav-icon fa fa-flag"></i>
-              <p>
-                Countries
-              </p>
-            </a>
-          </li>
+          
           <li class="nav-item">
             <a href="{{ url('admin/locations') }}" class="nav-link">
               <i class="nav-icon fa fa-map-marker-alt"></i>
