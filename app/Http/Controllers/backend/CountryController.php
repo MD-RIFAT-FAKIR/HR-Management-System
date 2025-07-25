@@ -40,4 +40,12 @@ class CountryController extends Controller
         $regions = Region::get();
         return view("backend.countries.edit", compact("country", "regions"));
     }
+
+    public function update(Request $request, $id) {
+        $country = Country::findOrFail($id);
+        $country->country_name = $request->country_name;
+        $country->region_id = $request->region_id;
+        $country->save();
+        return redirect("admin/countries")->with("success","Country Updated Successfully");
+    }
 }
