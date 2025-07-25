@@ -108,6 +108,7 @@ Route::group(['middleware' => 'admin'], function() {
   //countries all route
   Route::get('admin/countries', [CountryController::class, 'index']);
   Route::get('admin/countries/add', [CountryController::class,'add']);
+  Route::post('admin/countries/store', [CountryController::class,'store']);
   //end countries all route
 
 

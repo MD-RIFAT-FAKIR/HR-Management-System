@@ -30,7 +30,7 @@
               <div class="card-header">
                 <h3 class="card-title">Add Country</h3>
               </div>
-              <form class="form-horaizontal" action="{{ url('admin/employees/store') }}" method="post" enctype="multipart/form-data">
+              <form class="form-horaizontal" action="{{ url('admin/countries/store') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="card-body">
                   <div class="form-gorup row mt-2">
@@ -49,7 +49,7 @@
                     <label class="col-sm-2 col-form-table">Region Name<span style="color: red;">*</span>                    
                     </label>
                     <div class="col-sm-10">
-                      <select class="form-control" name="region_id" required>
+                      <select class="form-control" name="region_id" >
                         <option value="">---  Select Region Name  ---</option>
                         @foreach($regions as $region)
                         <option value="{{ $region->id }}">{{ $region->region_name }}</option>
