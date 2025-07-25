@@ -34,4 +34,10 @@ class CountryController extends Controller
        return redirect('admin/countries')->with("success","Country Added Sucessfully");
     
     }
+
+    public function edit($id) {
+        $country = Country::findOrFail($id);
+        $regions = Region::get();
+        return view("backend.countries.edit", compact("country", "regions"));
+    }
 }
