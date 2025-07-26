@@ -13,11 +13,25 @@ class Country extends Model
     protected $table = 'countries'; //db table name
 
     static public function getRecord ($request) {
-      $return = self::select('countries.*');
+      $return = self::select('countries.*','regions.region_name')
+                      ->join('regions','regions.id','=','countries.region_id')
+                      ->orderBy('countries.id','desc');
 
+      //search box
+      if(!empty(Request::get('id'))) {
+        $return = $return->where('countries.id', '=', Request::get('id'));
+      }
+      if(!empty(Request::get('country_name'))) {
+        $return = $return->where('countries.country_name','like', '%'.Request::get('country_name') .'%');
+      }
+      if(!empty(Request::get('region_name'))) {
+        $return = $return->where('regions.region_name','like','%'.Request::get('region_name').'%'); 
+      }
+      //end search box
 
-      $return = $return->paginate(20);
-      return $return;
+      $return = $return;
+
+      return $return->paginate(20);
     }
 
     //relation between country model and region model inside country mode to get region's table region_name
