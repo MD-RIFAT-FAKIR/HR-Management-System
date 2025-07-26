@@ -27,6 +27,9 @@ class Country extends Model
       if(!empty(Request::get('region_name'))) {
         $return = $return->where('regions.region_name','like','%'.Request::get('region_name').'%'); 
       }
+      if(!empty(Request::get('start_date')) && !empty(Request::get('end_date'))) {  
+        $return = $return->where('countries.created_at','>=', Request::get    ('start_date'))->where('countries.created_at', '<=', Request::get('end_date'));
+      }
       //end search box
 
       $return = $return;

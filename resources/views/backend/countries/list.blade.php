@@ -12,6 +12,12 @@
             <h1>Countries</h1>
           </div><!-- /.col -->
           <div class="col-sm-6" style="text-align: right;">
+            <form action="{{ url('admin/countries/excel') }}" method="get">
+               <input type="hidden" name="start_date" value="{{ Request()->start_date }}">
+               <input type="hidden" name="end_date" value="{{ Request()->end_date }}">
+               <a class="btn btn-success" href="{{ url('admin/countries/excel?start_date='.Request::get('start_date').'&end_date='.Request::get('end_date')) }}">Excel Export</a>
+            </form>
+            <br>
             <a href="{{ url('admin/countries/add') }}" class="btn btn-primary">Add Country</a>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -35,13 +41,21 @@
                       <label>ID</label>
                       <input type="text" name="id" value="{{ Request()->id }}" class="form-control" placeholder="Id">
                     </div>
-                    <div class="form-gorup col-md-3">
+                    <div class="form-gorup col-md-4">
                       <label>Country Name</label>
                       <input type="text" name="country_name" value="{{ Request()->country_name }}" class="form-control" placeholder="Country Name">
                     </div>                    
-                    <div class="form-gorup col-md-3">
+                    <div class="form-gorup col-md-4">
                       <label>Region Name</label>
                       <input type="text" name="region_name" value="{{ Request()->region_name }}" class="form-control" placeholder="Region Name">
+                    </div>                    
+                    <div class="form-gorup col-md-3">
+                      <label>Created At</label>
+                      <input type="date" name="start_date" value="{{ Request()->start_date }}" class="form-control">
+                    </div>                    
+                    <div class="form-gorup col-md-3">
+                      <label>Updated At</label>
+                      <input type="date" name="end_date" value="{{ Request()->end_date }}" class="form-control">
                     </div>                    
                     <div class="form-gorup col-md-3">
                       <button type="submit" class="btn btn-primary" style="margin-top: 30px;">Search</button>
@@ -65,7 +79,7 @@
                       <th>Country Name</th>
                       <th>Region Name</th>
                       <th>Created At</th>
-                      <th>Deleted At</th>
+                      <th>Updated At</th>
                       <th>Actions</th>
                     </tr>
                   </thead>

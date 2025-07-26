@@ -112,6 +112,8 @@ Route::group(['middleware' => 'admin'], function() {
   Route::get('admin/countries/edit/{id}', [CountryController::class,'edit']);
   Route::post('admin/countries/update/{id}', [CountryController::class,'update']);
   Route::get('admin/countries/delete/{id}', [CountryController::class,'delete']);
+  //exel file export
+  Route::get('admin/countries/excel', [CountryController::class,'ExportCountry']);
   //end countries all route
 
 
