@@ -111,6 +111,7 @@ Route::group(['middleware' => 'admin'], function() {
   Route::post('admin/countries/store', [CountryController::class,'store']);
   Route::get('admin/countries/edit/{id}', [CountryController::class,'edit']);
   Route::post('admin/countries/update/{id}', [CountryController::class,'update']);
+  Route::get('admin/countries/delete/{id}', [CountryController::class,'delete']);
   //end countries all route
 
 

@@ -48,4 +48,11 @@ class CountryController extends Controller
         $country->save();
         return redirect("admin/countries")->with("success","Country Updated Successfully");
     }
+
+    public function delete($id) {
+        $country = Country::findOrFail($id);
+        $country->delete();
+        
+        return redirect()->back()->with("error","Country Deleted Successfully");
+    }
 }
