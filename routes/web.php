@@ -9,6 +9,7 @@ use App\Http\Controllers\backend\JobHistoryController;
 use App\Http\Controllers\backend\JobGradeController;
 use App\Http\Controllers\backend\RegionController;
 use App\Http\Controllers\backend\CountryController;
+use App\Http\Controllers\backend\LocationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -115,6 +116,10 @@ Route::group(['middleware' => 'admin'], function() {
   //exel file export
   Route::get('admin/countries/excel', [CountryController::class,'ExportCountry']);
   //end countries all route
+
+  //location all route
+  Route::get('admin/locations', [LocationController::class,'Index']);
+  //end location all route
 
 
 });

@@ -106,22 +106,21 @@
             </a>
           </li>
           <li class="nav-item">
+            <a href="{{ url('admin/locations') }}" class="nav-link {{ (Request::segment(2)) == 'locations' ? 'active' : '' }}">
+              <i class="nav-icon fa fa-map-marker-alt"></i>
+              <p>
+                Locations
+              </p>
+            </a>
+          </li>  
+          <li class="nav-item">
             <a href="{{ url('admin/department') }}" class="nav-link">
               <i class="nav-icon fa fa-building"></i>
               <p>
                 Department
               </p>
             </a>
-          </li>
-          
-          <li class="nav-item">
-            <a href="{{ url('admin/locations') }}" class="nav-link">
-              <i class="nav-icon fa fa-map-marker-alt"></i>
-              <p>
-                Locations
-              </p>
-            </a>
-          </li>         
+          </li>       
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
