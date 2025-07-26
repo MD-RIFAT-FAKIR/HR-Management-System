@@ -120,6 +120,8 @@ Route::group(['middleware' => 'admin'], function() {
   //location all route
   Route::get('admin/locations', [LocationController::class,'Index']);
   Route::get('admin/locations/add', [LocationController::class,'Add']);
+  Route::post('admin/locations/store', [LocationController::class,'Store']);
+
   //end location all route
 
 

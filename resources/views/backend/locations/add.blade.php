@@ -30,14 +30,17 @@
               <div class="card-header">
                 <h3 class="card-title">Add Location</h3>
               </div>
-              <form class="form-horaizontal" action="{{ url('admin/job_history/store') }}" method="post" enctype="multipart/form-data">
+              <form class="form-horaizontal" action="{{ url('admin/locations/store') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="card-body">
                   <div class="form-gorup row mt-2">
                     <label class="col-sm-2 col-form-table">Street Address<span style="color: red;">*</span>                    
                     </label>
                     <div class="col-sm-10">
-                      <input class="form-control" type="text" name="street_address" value="{{ old('street_address') }}" placeholder="Enter Street Address">
+                      <input class="form-control" type="text" name="street_address" value="{{ old('street_address') }}" placeholder="Enter Street Address">                     
+                        @error('street_address')
+                          <span style="color: red;">{{$message}}</span>
+                        @enderror                     
                     </div>
                   </div>
                   <div class="form-gorup row mt-2">
@@ -45,6 +48,9 @@
                     </label>
                     <div class="col-sm-10">
                       <input class="form-control" type="text" name="postal_code" value="{{ old('postal_code') }}" placeholder="Enter Postal Code">
+                      @error('postal_code')
+                        <span style="color: red;">{{$message}}</span>
+                      @enderror
                     </div>
                   </div>
                   <div class="form-gorup row mt-2">
@@ -52,6 +58,9 @@
                     </label>
                     <div class="col-sm-10">
                       <input class="form-control" type="text" name="city" value="{{ old('city') }}" placeholder="Enter City">
+                      @error('city')
+                        <span style="color: red;">{{$message}}</span>
+                      @enderror
                     </div>
                   </div>
                   <div class="form-gorup row mt-2">
@@ -59,6 +68,9 @@
                     </label>
                     <div class="col-sm-10">
                       <input class="form-control" type="text" name="state_provice" value="{{ old('state_provice') }}" placeholder="Enter State Provice">
+                      @error('state_provice')
+                        <span style="color: red;">{{$message}}</span>
+                      @enderror
                     </div>
                   </div>
                   <div class="form-gorup row mt-2">
@@ -71,6 +83,9 @@
                           <option value="{{ $country->id }}">{{ $country->country_name }}</option>
                         @endforeach
                       </select>
+                      @error('country_id')
+                        <span style="color: red;">{{$message}}</span>
+                      @enderror
                     </div>
                   </div>             
                   <div class="card-footer">
