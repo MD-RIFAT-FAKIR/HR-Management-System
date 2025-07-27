@@ -123,6 +123,7 @@ Route::group(['middleware' => 'admin'], function() {
   Route::post('admin/locations/store', [LocationController::class,'Store']);
   Route::get('admin/locations/edit/{id}', [LocationController::class,'Edit']);
   Route::post('admin/locations/update/{id}', [LocationController::class,'Update']);
+  Route::get('admin/locations/delete/{id}', [LocationController::class,'Delete']);
 
   //end location all route
 

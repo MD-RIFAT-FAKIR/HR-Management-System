@@ -59,4 +59,10 @@ class LocationController extends Controller
 
         return redirect("admin/locations")->with("success","Location Updated Successfully");
     }
+
+    public function Delete($id) {
+        $location = Location::findOrFail($id);
+        $location->delete();
+        return redirect()->back()->with("error","Location Deleted Successfully");
+    }
 }
