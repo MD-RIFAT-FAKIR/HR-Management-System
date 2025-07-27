@@ -12,4 +12,17 @@ class Department extends Model
 
     protected $table = 'departments'; //db table name
 
+    static public function getRecord($request) {
+      $return = self::select('departments.*', 'locations.street_address')
+                ->join('locations','locations.id','=','departments.location_id')
+                ->orderBy('id','desc');
+
+
+
+
+                $return = $return->paginate(20);
+
+                return $return;
+    }
+
 }

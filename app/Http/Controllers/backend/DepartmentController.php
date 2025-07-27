@@ -10,8 +10,9 @@ use App\Models\Location;
 class DepartmentController extends Controller
 {
     //
-    public function Index() {
-        return view("backend.departments.list");
+    public function Index(Request $request) {
+        $data['getRecord'] = Department::getRecord($request);
+        return view("backend.departments.list", $data);
     }
 
     public function Add(Request $request) {
