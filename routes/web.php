@@ -10,6 +10,7 @@ use App\Http\Controllers\backend\JobGradeController;
 use App\Http\Controllers\backend\RegionController;
 use App\Http\Controllers\backend\CountryController;
 use App\Http\Controllers\backend\LocationController;
+use App\Http\Controllers\backend\DepartmentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -128,6 +129,9 @@ Route::group(['middleware' => 'admin'], function() {
   Route::get('admin/locations/export', [LocationController::class,'Export']);
   //end location export
   //end location all route
+
+  //department all route
+  Route::get('admin/departments', [DepartmentController::class,'Index']);
 
 
 });

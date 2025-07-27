@@ -114,7 +114,7 @@
             </a>
           </li>  
           <li class="nav-item">
-            <a href="{{ url('admin/department') }}" class="nav-link">
+            <a href="{{ url('admin/departments') }}" class="nav-link {{ (Request::segment(2)) == 'departments' ? 'active' : '' }}">
               <i class="nav-icon fa fa-building"></i>
               <p>
                 Department
