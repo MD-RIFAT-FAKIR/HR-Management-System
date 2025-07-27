@@ -137,6 +137,10 @@ Route::group(['middleware' => 'admin'], function() {
   Route::get('admin/departments/edit/{id}', [DepartmentController::class,'Edit']);
   Route::post('admin/departments/update/{id}', [DepartmentController::class,'Update']);
   Route::get('admin/departments/delete/{id}', [DepartmentController::class,'Delete']);
+  //excel export
+  //end excel export
+  Route::get('admin/departments/excel', [DepartmentController::class,'Export']);
+  //end department all route
 
 });
 

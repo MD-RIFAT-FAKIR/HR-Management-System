@@ -12,8 +12,11 @@
             <h1>Departments</h1>
           </div><!-- /.col -->
           <div class="col-sm-6" style="text-align: right;">  
-  
-
+              <form action="{{ url('admin/departments/excel') }}" method="get">
+               <input type="hidden" name="start_date" value="{{ Request()->start_date }}">
+               <input type="hidden" name="end_date" value="{{ Request()->end_date }}">
+               <a class="btn btn-success" href="{{ url('admin/departments/excel?start_date='.Request::get('start_date').'&end_date='.Request::get('end_date')) }}">Excel Export</a>
+            </form>
             <br>       
             <a href="{{ url('admin/departments/add') }}" class="btn btn-primary">Add Departments</a>
           </div><!-- /.col -->
@@ -34,19 +37,27 @@
               <form method="get" action="">
                 <div class="card-body">
                   <div class="row">
-                    <div class="form-gorup col-md-3">
+                    <div class="form-gorup col-md-4">
                       <label>ID</label>
                       <input type="text" name="id" value="{{ Request()->id }}" class="form-control" placeholder="Id">
                     </div>
-                    <div class="form-gorup col-md-3">
+                    <div class="form-gorup col-md-4">
                       <label>Department Name</label>
                       <input type="text" name="department_name" value="{{ Request()->department_name }}" class="form-control" placeholder="Department Name">
                     </div>
-                    <div class="form-gorup col-md-3">
+                    <div class="form-gorup col-md-4">
                       <label>Location Name</label>
                       <input type="text" name="location_id" value="{{ Request()->location_id }}" class="form-control" placeholder="Job Tittle">
                     </div>
-                    <div class="form-gorup col-md-3">
+                    <div class="form-gorup col-md-4">
+                      <label>Start Date</label>
+                      <input type="date" name="start_date" value="{{ Request()->start_date }}" class="form-control">
+                    </div>
+                    <div class="form-gorup col-md-4">
+                      <label>End Date</label>
+                      <input type="date" name="end_date" value="{{ Request()->end_date }}" class="form-control">
+                    </div>
+                    <div class="form-gorup col-md-4">
                       <button type="submit" class="btn btn-primary" style="margin-top: 30px;">Search</button>
                       <a href="{{ url('admin/departments') }}" class="btn btn-success" style="margin-top: 30px;">Reset</a>
                     </div>

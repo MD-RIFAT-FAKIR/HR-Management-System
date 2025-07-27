@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Department;
 use App\Models\Location;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\DepartmentExport;
 
 class DepartmentController extends Controller
 {
@@ -60,5 +62,9 @@ class DepartmentController extends Controller
         $department = Department::findOrFail($id)->delete();
 
         return redirect()->back()->with("error","Department Deleted Successfully");
+    }
+
+    public function Export($request = null) {
+        return Excel::download(new DepartmentExport, 'department.xlsx');
     }
 }
