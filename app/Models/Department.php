@@ -14,15 +14,24 @@ class Department extends Model
 
     static public function getRecord($request) {
       $return = self::select('departments.*', 'locations.street_address')
-                ->join('locations','locations.id','=','departments.location_id')
-                ->orderBy('id','desc');
+              ->join('locations','locations.id','=','departments.location_id')
+              ->orderBy('id','desc');
+           
+            //search box
+            if(!empty(Request::get('id'))) {
+              $return = $return->where('departments.id', '=', Request::get('id'));
+            }
+            if(!empty(Request::get('department_name'))) {
+              $return = $return->where('departments.department_name', 'like', '%'.Request::get('department_name').'%');
+            }
+            if(!empty(Request::get('location_id'))) {
+              $return = $return->where('locations.street_address', 'like', '%'.Request::get('location_id').'%');
+            }
+            //end search box
+             
+      $return = $return->paginate(20);
 
-
-
-
-                $return = $return->paginate(20);
-
-                return $return;
+      return $return;
     }
 
 }

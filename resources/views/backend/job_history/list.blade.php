@@ -36,7 +36,6 @@
               <form method="get" action="">
                 <div class="card-body">
                   <div class="row">
-
                     <div class="form-gorup col-md-3">
                       <label>ID</label>
                       <input type="text" name="id" value="{{ Request()->id }}" class="form-control" placeholder="Id">

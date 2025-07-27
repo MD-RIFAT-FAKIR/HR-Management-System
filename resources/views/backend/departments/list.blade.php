@@ -31,9 +31,29 @@
               <div class="card-header">
                 <h3 class="card-title">Search Departments</h3>
               </div>
+              <form method="get" action="">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="form-gorup col-md-3">
+                      <label>ID</label>
+                      <input type="text" name="id" value="{{ Request()->id }}" class="form-control" placeholder="Id">
+                    </div>
+                    <div class="form-gorup col-md-3">
+                      <label>Department Name</label>
+                      <input type="text" name="department_name" value="{{ Request()->department_name }}" class="form-control" placeholder="Department Name">
+                    </div>
+                    <div class="form-gorup col-md-3">
+                      <label>Location Name</label>
+                      <input type="text" name="location_id" value="{{ Request()->location_id }}" class="form-control" placeholder="Job Tittle">
+                    </div>
+                    <div class="form-gorup col-md-3">
+                      <button type="submit" class="btn btn-primary" style="margin-top: 30px;">Search</button>
+                      <a href="{{ url('admin/departments') }}" class="btn btn-success" style="margin-top: 30px;">Reset</a>
+                    </div>
 
-
-
+                  </div>
+                </div>
+              </form>
             </div>
             @include('message')
             <div class="card">
