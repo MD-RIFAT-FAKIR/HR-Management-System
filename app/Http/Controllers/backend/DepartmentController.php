@@ -37,6 +37,11 @@ class DepartmentController extends Controller
 
         return redirect('admin/departments')->with("success","Department Added Successfully");
     
-    
+    }
+
+    public function Edit($id) {
+        $data['getRecord'] = Department::findOrFail($id);
+        $data['getLocation'] = Location::all();
+        return view("backend.departments.edit", $data);
     }
 }
