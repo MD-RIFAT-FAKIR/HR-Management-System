@@ -45,4 +45,18 @@ class LocationController extends Controller
         $data["getCountry"] = Country::all();
         return view("backend.locations.edit", $data);
     }
+
+    public function Update(Request $request, $id) {
+
+        $location = Location::findOrFail($id);
+
+        $location->street_address = trim($request->street_address);
+        $location->postal_code = trim($request->postal_code);
+        $location->city = trim($request->city);
+        $location->state_provice = trim($request->state_provice);
+        $location->country_id = trim($request->country_id);
+        $location->save();
+
+        return redirect("admin/locations")->with("success","Location Updated Successfully");
+    }
 }
