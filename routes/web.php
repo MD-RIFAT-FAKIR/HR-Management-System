@@ -124,7 +124,9 @@ Route::group(['middleware' => 'admin'], function() {
   Route::get('admin/locations/edit/{id}', [LocationController::class,'Edit']);
   Route::post('admin/locations/update/{id}', [LocationController::class,'Update']);
   Route::get('admin/locations/delete/{id}', [LocationController::class,'Delete']);
-
+  //location export
+  Route::get('admin/locations/export', [LocationController::class,'Export']);
+  //end location export
   //end location all route
 
 
