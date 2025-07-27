@@ -15,7 +15,7 @@
   
 
             <br>       
-            <a href="{{ url('admin/locations/add') }}" class="btn btn-primary">Add Departments</a>
+            <a href="{{ url('admin/departments/add') }}" class="btn btn-primary">Add Departments</a>
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
