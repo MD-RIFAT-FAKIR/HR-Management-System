@@ -136,7 +136,7 @@ Route::group(['middleware' => 'admin'], function() {
   Route::post('admin/departments/store', [DepartmentController::class,'Store']);
   Route::get('admin/departments/edit/{id}', [DepartmentController::class,'Edit']);
   Route::post('admin/departments/update/{id}', [DepartmentController::class,'Update']);
-
+  Route::get('admin/departments/delete/{id}', [DepartmentController::class,'Delete']);
 
 });
 

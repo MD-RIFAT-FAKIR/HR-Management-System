@@ -74,7 +74,7 @@
                   </div>           
                   <div class="card-footer">
                     <a href="{{ url('admin/departments') }}" class="btn btn-default">Back</a>
-                    <button type="submit" class="btn btn-primary float-right">Submit</button>
+                    <button type="submit" class="btn btn-primary float-right">Update</button>
                   </div>
                 </div>
               </form>
