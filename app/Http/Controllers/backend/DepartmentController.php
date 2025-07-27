@@ -44,4 +44,15 @@ class DepartmentController extends Controller
         $data['getLocation'] = Location::all();
         return view("backend.departments.edit", $data);
     }
+
+    public function Update(Request $request, $id) {
+        $department = Department::findOrFail($id);
+
+        $department->department_name = $request->department_name;
+        $department->manager_id      = $request->manager_id;
+        $department->location_id     = $request->location_id;
+        $department->save();
+
+        return redirect('admin/departments')->with("success","Department Updated Successfully");
+    }
 }
