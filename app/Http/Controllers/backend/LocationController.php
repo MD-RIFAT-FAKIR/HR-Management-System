@@ -10,8 +10,9 @@ use App\Models\Country;
 class LocationController extends Controller
 {
     //
-    public function Index() {
-        return view("backend.locations.list");
+    public function Index(Request $request) {
+        $data['getRecord'] = Location::getRecord($request);
+        return view("backend.locations.list", $data);
     }
 
     public function Add() {
@@ -22,7 +23,7 @@ class LocationController extends Controller
     public function Store(Request $request) {
         $request->validate([
             "street_address"=> "required",
-            "postal_code"=> "required",
+            "postal_code"=> "required|numeric",
             "city"=> "required",
             "state_provice"=> "required",
             "country_id"=> "required",

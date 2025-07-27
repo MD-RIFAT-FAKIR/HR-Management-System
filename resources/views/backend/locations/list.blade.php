@@ -9,7 +9,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Jobs</h1>
+            <h1>Location</h1>
           </div><!-- /.col -->
           <div class="col-sm-6" style="text-align: right;">           
             <a href="{{ url('admin/locations/add') }}" class="btn btn-primary">Add Locations</a>
@@ -30,7 +30,6 @@
               </div>
             </div>
             @include('message')
-
             <div class="card">
               <div class="card-header">
                 <h3 class="card-title">Location List</h3>
@@ -39,7 +38,7 @@
                 <table class="table table-striped">
                   <thead>
                     <tr>
-                      <th>ID</th>
+                      <th>ID</th>                                        
                       <th>Street Address</th>
                       <th>Postal Code</th>
                       <th>Sity</th>
@@ -49,13 +48,33 @@
                       <th>Actions</th>
                     </tr>
                   </thead>
+                  </thead>
                   <tbody>
-                    
-                  </tbody>
-                </table>
-                <div style="padding: 10px; float: right;">
-
+                    @forelse($getRecord as $value)
+                      <tr>
+                        <td>{{ $value->id }}</td>
+                        <td>{{ $value->street_address }}</td>
+                        <td>{{ $value->postal_code }}</td>
+                        <td>{{ $value->city }}</td>
+                        <td>{{ $value->state_provice }}</td>
+                        <td>{{ $value->country_name }}</td>
+                        <td>{{ date('d-m-Y H:i A', strtotime($value->created_at)) }}</td>
+                        <td>{{ date('d-m-Y H:i A', strtotime($value->updated_at)) }}</td>                     
+                        <td>
+                        <a href="{{ url('admin/locations/edit', $value->id) }}" class="btn btn-success mt-1">Edit</a>
+                        <a href="{{ url('admin/locations/delete', $value->id) }}" onclick="return confirm('Are your sure you want to delete')" class="btn btn-danger mt-1">Delete</a>
+                      </td>
+                      </tr>
+                      @empty
+                      <tr>
+                        <td colspan="100%" style="color: red;">No Record Found.</td>
+                      </tr>
+                    @endforelse                  
                 </div>
+              </table>
+              <div style="padding: 10px; float: right;">
+                  {!! $getRecord->appends(Illuminate\Support\Facades\Request::except('page'))->links() !!}
+              </div>
               </div>
             </div>
           </section>
