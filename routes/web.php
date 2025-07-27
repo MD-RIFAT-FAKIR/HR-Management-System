@@ -121,6 +121,7 @@ Route::group(['middleware' => 'admin'], function() {
   Route::get('admin/locations', [LocationController::class,'Index']);
   Route::get('admin/locations/add', [LocationController::class,'Add']);
   Route::post('admin/locations/store', [LocationController::class,'Store']);
+  Route::get('admin/locations/edit/{id}', [LocationController::class,'Edit']);
 
   //end location all route
 

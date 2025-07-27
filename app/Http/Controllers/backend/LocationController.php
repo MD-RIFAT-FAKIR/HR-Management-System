@@ -38,6 +38,11 @@ class LocationController extends Controller
         $location->save();
 
         return redirect("admin/locations")->with("success","Location Added Successfully");
+    }
 
+    public function Edit($id) {
+        $data["getRecord"] = Location::findOrFail($id);
+        $data["getCountry"] = Country::all();
+        return view("backend.locations.edit", $data);
     }
 }
