@@ -28,6 +28,58 @@
               <div class="card-header">
                 <h3 class="card-title">Search Location</h3>
               </div>
+                            <form method="get" action="">
+                <div class="card-body">
+                  <div class="row">
+
+                    <div class="form-gorup col-md-3">
+                      <label>ID</label>
+                      <input type="text" name="id" value="{{ Request()->id }}" class="form-control" placeholder="Enter Id">
+                    </div>
+                    <div class="form-gorup col-md-3">
+                      <label>Street Address</label>
+                      <input type="text" name="street_address" value="{{ Request()->street_address }}" class="form-control" placeholder="Enter Street Address">
+                    </div>
+                    <div class="form-gorup col-md-3">
+                      <label>Postal Code</label>
+                      <input type="text" name="postal_code" value="{{ Request()->postal_code }}" class="form-control" placeholder="Enter Postal Code">
+                    </div>
+                    <div class="form-gorup col-md-3">
+                      <label>City</label>
+                      <input type="text" name="city" value="{{ Request()->city }}" class="form-control" placeholder="Enter City">
+                    </div>
+                    <div class="form-gorup col-md-3">
+                      <label>State Provice</label>
+                      <input type="text" name="state_provice" value="{{ Request()->state_provice }}" class="form-control" placeholder="Enter State Provice">
+                    </div>
+                    <div class="form-gorup col-md-3">
+                      <label>Country Name</label>
+                      <input type="text" name="country_id" value="{{ Request()->country_id }}" class="form-control" placeholder="Enter Country Name">
+                    </div>
+                    <div class="form-gorup col-md-3">
+                      <label>Created At</label>
+                      <input type="date" name="created_at" value="{{ Request()->created_at }}" class="form-control">
+                    </div>
+                    <div class="form-gorup col-md-3">
+                      <label>Updated At</label>
+                      <input type="date" name="updated_at" value="{{ Request()->updated_at }}" class="form-control">
+                    </div>
+                    <div class="form-gorup col-md-3">
+                      <label>Start Date</label>
+                      <input type="date" name="start_date" value="{{ Request()->start_date }}" class="form-control">
+                    </div>
+                    <div class="form-gorup col-md-3">
+                      <label>End Date</label>
+                      <input type="date" name="end_date" value="{{ Request()->end_date }}" class="form-control">
+                    </div>
+                    <div class="form-gorup col-md-3">
+                      <button type="submit" class="btn btn-primary" style="margin-top: 30px;">Search</button>
+                      <a href="{{ url('admin/locations') }}" class="btn btn-success" style="margin-top: 30px;">Reset</a>
+                    </div>
+
+                  </div>
+                </div>
+              </form>
             </div>
             @include('message')
             <div class="card">
@@ -45,6 +97,7 @@
                       <th>State Provice</th>
                       <th>Country Name</th>
                       <th>Created At</th>
+                      <th>Updated At</th>
                       <th>Actions</th>
                     </tr>
                   </thead>
