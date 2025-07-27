@@ -30,7 +30,7 @@
               <div class="card-header">
                 <h3 class="card-title">Add Departments</h3>
               </div>
-              <form class="form-horaizontal" action="{{ url('admin/job_history/store') }}" method="post" enctype="multipart/form-data">
+              <form class="form-horaizontal" action="{{ url('admin/departments/store') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="card-body">
                   <div class="form-gorup row mt-2">
@@ -38,6 +38,9 @@
                     </label>
                     <div class="col-sm-10">
                       <input type="text" class="form-control" name="department_name" value="{{ old('department_name') }}" placeholder="Enter Department Name">
+                      @error('department_name')
+                        <span style="color:red;">{{ $message }}</span>
+                      @enderror
                     </div>
                   </div>   
                   <div class="form-gorup row mt-2">
@@ -49,6 +52,9 @@
                         <option value="1">Rifat</option>
                         <option value="2">Fakir</option>
                       </select>
+                      @error('manager_id')
+                        <span style="color:red;">{{ $message }}</span>
+                      @enderror
                     </div>
                   </div>
                   <div class="form-gorup row mt-2">
@@ -61,6 +67,9 @@
                           <option value="{{ $value->id }}">{{ $value->street_address }}</option>
                         @endforeach
                       </select>
+                      @error('location_id')
+                        <span style="color:red;">{{ $message }}</span>
+                      @enderror
                     </div>
                   </div>           
                   <div class="card-footer">

@@ -18,4 +18,24 @@ class DepartmentController extends Controller
         $data['getLocation'] = Location::all();
         return view("backend.departments.add", $data);
     }
+
+    public function Store(Request $request) {
+
+        $request->validate([
+            "department_name"=> "required",
+            "manager_id"=> "required",
+            "location_id"=> "required",
+        ]);
+
+
+        $department                 = new Department;
+        $department->department_name = $request->department_name;
+        $department->manager_id      = $request->manager_id;
+        $department->location_id     = $request->location_id;
+        $department->save();
+
+        return redirect('admin/departments')->with("success","Department Added Successfully");
+    
+    
+    }
 }

@@ -133,6 +133,7 @@ Route::group(['middleware' => 'admin'], function() {
   //department all route
   Route::get('admin/departments', [DepartmentController::class,'Index']);
   Route::get('admin/departments/add', [DepartmentController::class,'Add']);
+  Route::post('admin/departments/store', [DepartmentController::class,'Store']);
 
 
 });
