@@ -34,4 +34,9 @@ class ManagerController extends Controller
         return redirect('admin/manager')->with('success','Manager Added Successfully');
     
     }
+
+    public function Edit(Request $request, $id) {
+        $data['getRecord'] = Manager::findOrFail($id);
+        return view('backend.manager.edit', $data);
+    }
 }

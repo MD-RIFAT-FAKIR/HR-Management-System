@@ -59,7 +59,7 @@
                       <td>{{$value->manager_email }}</td>                     
                       <td>{{$value->manager_mobile }}</td>                                   
                       <td>
-                        <a href="{{ url('admin/jobs/edit', $value->id) }}" class="btn btn-success">Edit</a>
+                        <a href="{{ url('admin/manager/edit', $value->id) }}" class="btn btn-success">Edit</a>
                         <a href="{{ url('admin/job/delete', $value->id) }}" onclick="return confirm('Are your sure you want to delete')" class="btn btn-danger">Delete</a>
                       </td>
                     </tr>
