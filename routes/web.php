@@ -145,6 +145,7 @@ Route::group(['middleware' => 'admin'], function() {
 
   //managet all route
   Route::get('admin/manager', [ManagerController::class,'Index']);
+  Route::get('admin/manager/add', [ManagerController::class,'Add']);
 
   //end managet all route
 

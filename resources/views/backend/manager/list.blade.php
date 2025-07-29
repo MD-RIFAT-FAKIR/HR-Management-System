@@ -15,7 +15,7 @@
             
 
             <br>
-            <a href="{{ url('admin/jobs/add') }}" class="btn btn-primary">Add Manager</a>
+            <a href="{{ url('admin/manager/add') }}" class="btn btn-primary">Add Manager</a>
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
@@ -38,7 +38,7 @@
 
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Manager List</h3>
+                <h3 class="card-title">Managers List</h3>
               </div>
               <div class="card-body p-0">
                 <table class="table table-striped">

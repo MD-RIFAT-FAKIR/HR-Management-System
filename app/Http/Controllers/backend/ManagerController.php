@@ -11,4 +11,8 @@ class ManagerController extends Controller
     public function Index() {
         return view("backend.manager.list");
     }
+
+    public function Add() {
+        return view("backend.manager.add");
+    }
 }
