@@ -11,6 +11,14 @@ class Manager extends Model
 
     protected $table = 'manager'; //db table name
 
+    static public function getRecord($request) {
+      $return = self::select('manager.*')->orderBy('manager.id', 'desc');
+
+
+      $return = $return->paginate(20);
+      return $return;
+    }
+
 }
 
 

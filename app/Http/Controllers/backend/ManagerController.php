@@ -9,8 +9,9 @@ use App\Models\Manager;
 class ManagerController extends Controller
 {
     //
-    public function Index() {
-        return view("backend.manager.list");
+    public function Index(Request $request) {
+        $data['getRecord'] = Manager::getRecord($request);
+        return view("backend.manager.list", $data);
     }
 
     public function Add() {

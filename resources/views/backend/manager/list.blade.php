@@ -52,11 +52,26 @@
                     </tr>
                   </thead>
                   <tbody>
-                     
+                   @forelse($getRecord as $value)
+                    <tr>
+                      <td>{{$value->id }}</td>                     
+                      <td>{{$value->manager_name }}</td>                     
+                      <td>{{$value->manager_email }}</td>                     
+                      <td>{{$value->manager_mobile }}</td>                                   
+                      <td>
+                        <a href="{{ url('admin/jobs/edit', $value->id) }}" class="btn btn-success">Edit</a>
+                        <a href="{{ url('admin/job/delete', $value->id) }}" onclick="return confirm('Are your sure you want to delete')" class="btn btn-danger">Delete</a>
+                      </td>
+                    </tr>
+                    @empty
+                    <tr>
+                      <td colspan="100%" style="color: red;">No Record Found.</td>
+                    </tr>
+                    @endforelse
                   </tbody>
                 </table>
                 <div style="padding: 10px; float: right;">
-
+                    {!! $getRecord->appends(Illuminate\Support\Facades\Request::except('page'))->links() !!}
                 </div>
               </div>
             </div>
