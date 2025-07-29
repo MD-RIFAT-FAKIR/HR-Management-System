@@ -31,8 +31,32 @@
               <div class="card-header">
                 <h3 class="card-title">Search Manager</h3>
               </div>
-
-
+              <form method="get" action="">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="form-gorup col-md-3">
+                      <label>ID</label>
+                      <input type="text" name="id" value="{{ Request()->id }}" class="form-control" placeholder="Enter ID">
+                    </div>
+                    <div class="form-gorup col-md-3">
+                      <label>Manager Name</label>
+                      <input type="text" name="manager_name" value="{{ Request()->manager_name }}" class="form-control" placeholder="Enter Manager Name">
+                    </div>                   
+                    <div class="form-gorup col-md-3">
+                      <label>Manager Email</label>
+                      <input type="text" name="manager_email" value="{{ Request()->manager_email }}" class="form-control" placeholder="Enter Manager Email">
+                    </div>                   
+                    <div class="form-gorup col-md-3">
+                      <label>Manager Mobile</label>
+                      <input type="text" name="manager_mobile" value="{{ Request()->manager_mobile }}" class="form-control" placeholder="Enter Manager Mobile">
+                    </div>                   
+                    <div class="form-gorup col-md-2">
+                      <button type="submit" class="btn btn-primary" style="margin-top: 30px;">Search</button>
+                      <a href="{{ url('admin/manager') }}" class="btn btn-success" style="margin-top: 30px;">Reset</a>
+                    </div>
+                  </div>
+                </div>
+              </form>
             </div>
             @include('message')
 
