@@ -47,7 +47,14 @@ class ManagerController extends Controller
         $manager->manager_email = trim($request->manager_email);
         $manager->manager_mobile = trim($request->manager_mobile);
         $manager->save();
-        
+
         return redirect('admin/manager')->with('success','Manager Updated Successfully');
+    }
+
+    public function Delete($id) {
+        $manager = Manager::findOrFail($id);
+        $manager->delete();
+
+        return redirect()->back()->with('error','Manager Deleted Successfully');
     }
 }
