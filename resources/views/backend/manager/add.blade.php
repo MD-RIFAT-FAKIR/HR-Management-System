@@ -30,7 +30,7 @@
               <div class="card-header">
                 <h3 class="card-title">Add Manager</h3>
               </div>
-              <form class="form-horaizontal" action="{{ url('admin/job/store') }}" method="post" enctype="multipart/form-data">
+              <form class="form-horaizontal" action="{{ url('admin/manager/store') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="card-body">
                   <div class="form-gorup row mt-2">
@@ -38,6 +38,9 @@
                     </label>
                     <div class="col-sm-10">
                       <input class="form-control" type="text" name="manager_name" value="{{ old('manager_name') }}" placeholder="Enter Manager Name">
+                      @error('manager_name')
+                        <span style="color:red;">{{ $message }}</span>
+                      @enderror
                     </div>
                   </div>
                   <div class="form-gorup row mt-2">
@@ -45,6 +48,9 @@
                     </label>
                     <div class="col-sm-10">
                       <input class="form-control" type="text" name="manager_email" value="{{ old('manager_email') }}" placeholder="Enter Manager Email">
+                      @error('manager_email')
+                        <span style="color:red;">{{ $message }}</span>
+                      @enderror
                     </div>
                   </div>
                   <div class="form-gorup row mt-2">
@@ -52,6 +58,9 @@
                     </label>
                     <div class="col-sm-10">
                       <input class="form-control" type="text" name="manager_mobile" value="{{ old('manager_mobile') }}" placeholder="Enter Manager Mobile">
+                      @error('manager_mobile')
+                        <span style="color:red;">{{ $message }}</span>
+                      @enderror
                     </div>
                   </div>
                   <div class="card-footer">

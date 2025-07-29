@@ -146,6 +146,7 @@ Route::group(['middleware' => 'admin'], function() {
   //managet all route
   Route::get('admin/manager', [ManagerController::class,'Index']);
   Route::get('admin/manager/add', [ManagerController::class,'Add']);
+  Route::post('admin/manager/store', [ManagerController::class,'Store']);
 
   //end managet all route
 
