@@ -30,7 +30,7 @@
               <div class="card-header">
                 <h3 class="card-title">Edit Manager</h3>
               </div>
-              <form class="form-horaizontal" action="{{ url('admin/manager/store') }}" method="post" enctype="multipart/form-data">
+              <form class="form-horaizontal" action="{{ url('admin/manager/update', $getRecord->id) }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="card-body">
                   <div class="form-gorup row mt-2">

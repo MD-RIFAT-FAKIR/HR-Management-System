@@ -39,4 +39,15 @@ class ManagerController extends Controller
         $data['getRecord'] = Manager::findOrFail($id);
         return view('backend.manager.edit', $data);
     }
+
+    public function Update(Request $request, $id) {
+        $manager = Manager::findOrFail($id);
+
+        $manager->manager_name = trim($request->manager_name);
+        $manager->manager_email = trim($request->manager_email);
+        $manager->manager_mobile = trim($request->manager_mobile);
+        $manager->save();
+        
+        return redirect('admin/manager')->with('success','Manager Updated Successfully');
+    }
 }
