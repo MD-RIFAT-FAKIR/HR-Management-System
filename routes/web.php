@@ -11,6 +11,7 @@ use App\Http\Controllers\backend\RegionController;
 use App\Http\Controllers\backend\CountryController;
 use App\Http\Controllers\backend\LocationController;
 use App\Http\Controllers\backend\DepartmentController;
+use App\Http\Controllers\backend\ManagerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -141,6 +142,11 @@ Route::group(['middleware' => 'admin'], function() {
   //end excel export
   Route::get('admin/departments/excel', [DepartmentController::class,'Export']);
   //end department all route
+
+  //managet all route
+  Route::get('admin/manager', [ManagerController::class,'Index']);
+
+  //end managet all route
 
 });
 
