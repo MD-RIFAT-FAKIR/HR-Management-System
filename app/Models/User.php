@@ -71,4 +71,9 @@ class User extends Authenticatable
     public function get_job() {
        return $this->belongsTo(Job::class, 'job_id');
     }
+
+    //relation between user model and manager model to get manager's name
+    public function manager() {
+        return $this->belongsTo(Manager::class,'manager_id');
+    }
 }

@@ -106,7 +106,7 @@
                 <label class="col-sm-2 col-form-table">Manager Name<span style="color: red;"></span>                    
                 </label>
                 <div class="col-sm-10">
-                  {{ $employee->manager_id }}
+                  {{ $employee->manager->manager_name }}
                 </div>
               </div>
               <div class="form-gorup row mt-2">
