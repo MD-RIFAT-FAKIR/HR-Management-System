@@ -85,7 +85,7 @@
                 <label class="col-sm-2 col-form-table">Job Tittle<span style="color: red;"></span>                    
                 </label>
                 <div class="col-sm-10">
-                  {{ $employee->get_job->job_title }}
+                  {{ (!empty($employee->get_job->job_title) ? $employee->get_job->job_title : '' ) }}
                 </div>
               </div>
               <div class="form-gorup row mt-2">
@@ -106,14 +106,14 @@
                 <label class="col-sm-2 col-form-table">Manager Name<span style="color: red;"></span>                    
                 </label>
                 <div class="col-sm-10">
-                  {{ $employee->manager->manager_name }}
+                  {{ (!empty($employee->manager->manager_name) ? $employee->manager->manager_name : '') }}
                 </div>
               </div>
               <div class="form-gorup row mt-2">
                 <label class="col-sm-2 col-form-table">Department Name<span style="color: red;"></span>                    
                 </label>
                 <div class="col-sm-10">
-                  {{ $employee->department->department_name }}
+                  {{ (!empty($employee->department->department_name) ? $employee->department->department_name : '') }}
                 </div>
               </div>
               <div class="form-gorup row mt-2">
