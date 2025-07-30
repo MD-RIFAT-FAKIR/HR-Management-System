@@ -53,5 +53,10 @@ class JobHistory extends Model
         return $this->belongsTo(Job::class, 'job_id');
     }
 
+    //relation between jobHistory mode and department model to get department_name
+    public function department() {
+        return $this->belongsTo(Department::class,'department_id');
+    }
+
 }
 

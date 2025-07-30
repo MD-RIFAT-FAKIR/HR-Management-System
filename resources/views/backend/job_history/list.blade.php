@@ -93,13 +93,7 @@
                         <td>{{ date('d-m-Y', strtotime($value->start_date)) }}</td>
                         <td>{{ date('d-m-Y', strtotime($value->end_date)) }}</td>
                         <td>{{ !empty($value->job->job_title) ? $value->job->job_title : '' }}</td>
-                        <td>
-                          @if($value->department_id == 1)
-                          ABC
-                          @else
-                          XYZ
-                          @endif
-                        </td>
+                        <td>{{ (!empty($value->department->department_name) ? $value->department->department_name : '') }}</td>
                         <td>
                           {{ date('d-m-Y H:i A', strtotime($value->created_at)) }}
                         </td>
