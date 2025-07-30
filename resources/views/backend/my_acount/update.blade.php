@@ -26,18 +26,19 @@
       <div class="container-fluid">
         <div class="row">
           <section class="col-md-12">
+            @include('message')
             <div class="card card-info">
               <div class="card-header">
                 <h3 class="card-title">My Acount</h3>
               </div>
-              <form class="form-horaizontal" action=" " method="post" enctype="multipart/form-data">
+              <form class="form-horaizontal" action="{{ url('admin/my_acount/update') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="card-body">
                   <div class="form-gorup row mt-2">
                     <label class="col-sm-2 col-form-table">Name<span style="color: red;">*</span>                    
                     </label>
                     <div class="col-sm-10">
-                      <input class="form-control" type="text" name="name" value="{{ old('name') }}" placeholder="Enter Name">
+                      <input class="form-control" type="text" name="name" value="{{ $getRecord->name }}" placeholder="Enter Name">
                       @error('manager_name')
                         <span style="color:red;">{{ $message }}</span>
                       @enderror
@@ -47,7 +48,7 @@
                     <label class="col-sm-2 col-form-table"> Email<span style="color: red;">*</span>                    
                     </label>
                     <div class="col-sm-10">
-                      <input class="form-control" type="text" name="email" value="{{ old('email') }}" placeholder="Enter Email">
+                      <input class="form-control" type="text" name="email" value="{{ $getRecord->email }}" placeholder="Enter Email">
                       @error('manager_email')
                         <span style="color:red;">{{ $message }}</span>
                       @enderror

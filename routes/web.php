@@ -158,6 +158,7 @@ Route::group(['middleware' => 'admin'], function() {
 
   //my acount all route
   Route::get('admin/my_acount', [MyAcountController::class,'MyAcount']);
+  Route::post('admin/my_acount/update', [MyAcountController::class,'UpdateAcount']);
   //end my acount all route
 
 });
