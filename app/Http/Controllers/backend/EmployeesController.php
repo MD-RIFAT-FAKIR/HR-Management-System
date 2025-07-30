@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Job;
+use App\Models\Department;
 
 class EmployeesController extends Controller
 {
@@ -18,7 +19,8 @@ class EmployeesController extends Controller
     //employees add
     public function Add() {
         $job_title = Job::get();
-        return view('backend.employees.add', compact('job_title'));
+        $department = Department::get();
+        return view('backend.employees.add', compact('job_title','department'));
     }
     //employee store
     public function Store(Request $request) {
