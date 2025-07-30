@@ -52,8 +52,9 @@ class JobHistoryController extends Controller
         $users = User::where('is_role', '=', 0)->get();
         $jobs = Job::get();
         $jobHistory = JobHistory::find($id);
+        $department = Department::get();
 
-        return view('backend.job_history.edit', compact('jobs', 'users', 'jobHistory'));
+        return view('backend.job_history.edit', compact('jobs', 'users', 'jobHistory','department'));
     }
 
     //job History update
