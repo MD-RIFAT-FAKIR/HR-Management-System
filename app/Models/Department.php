@@ -13,9 +13,10 @@ class Department extends Model
     protected $table = 'departments'; //db table name
 
     static public function getRecord($request) {
-      $return = self::select('departments.*', 'locations.street_address')
+      $return = self::select('departments.*', 'locations.street_address', 'manager.manager_name')
               ->join('locations','locations.id','=','departments.location_id')
-              ->orderBy('id','desc');
+              ->join('manager','manager.id', '=', 'departments.manager_id')
+              ->orderBy('departments.id','desc');
            
             //search box
             if(!empty(Request::get('id'))) {
