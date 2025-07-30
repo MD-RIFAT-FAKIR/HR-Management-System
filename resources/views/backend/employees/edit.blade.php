@@ -103,8 +103,9 @@
                     <div class="col-sm-10">
                       <select class="form-control" name="manager_id" required>
                         <option value="">---  Select Manager Name  ---</option>
-                        <option {{ ($employee->manager_id == 1) ? 'selected' : '' }} value="1">ABC</option>
-                        <option {{ ($employee->manager_id == 2) ? 'selected' : '' }} value="2">XYZ</option>
+                        @foreach($manager as $value)
+                        <option {{ ($employee->manager_id == $value->id) ? 'selected' : '' }} value="{{ $value->id }}">{{ $value->manager_name }}</option>
+                        @endforeach
                       </select>
                     </div>
                   </div> 
