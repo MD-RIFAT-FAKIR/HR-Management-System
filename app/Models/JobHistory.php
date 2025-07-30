@@ -14,9 +14,10 @@ class JobHistory extends Model
 
     static public function getRecord($request) {
     
-        $return = self::select('job_history.*', 'users.name', 'jobs.job_title', 'users.last_name')
+        $return = self::select('job_history.*', 'users.name', 'jobs.job_title', 'users.last_name','departments.department_name')
             ->join('users', 'users.id', '=', 'job_history.employee_id')
             ->join('jobs', 'jobs.id', '=', 'job_history.job_id')
+            ->join('departments','departments.id','=','job_history.department_id')
             ->orderBy('job_history.id', 'DESC');
 
         if(!empty(Request::get('id'))) {
@@ -34,9 +35,15 @@ class JobHistory extends Model
         if(!empty(Request::get('job_title'))) {
             $return = $return->where('jobs.job_title', '=', Request::get('job_title'));
         }
-        if( !empty(Request::get('start_date')) && !empty(Request::get('end_date')) ) {
-            $return = $return->where('job_history.start_date', '>=', Request::get('start_date'))->where('job_history.end_date', '<=', Request::get('end_date'));
+        if (!empty(Request::get('start_date')) && !empty(Request::get('end_date'))) {
+            $return = $return->whereDate('job_history.start_date', '>=', Request::get('start_date'))
+                     ->whereDate('job_history.end_date', '<=', Request::get('end_date'));
+        } elseif (!empty(Request::get('start_date'))) {
+            $return = $return->whereDate('job_history.start_date', '>=', Request::get('start_date'));
+        } elseif (!empty(Request::get('end_date'))) {
+            $return = $return->whereDate('job_history.end_date', '<=', Request::get('end_date'));
         }
+ 
             
         $return = $return->paginate(20);
 
