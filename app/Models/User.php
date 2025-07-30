@@ -76,4 +76,8 @@ class User extends Authenticatable
     public function manager() {
         return $this->belongsTo(Manager::class,'manager_id');
     }
+    //relation between user model and department model to get department's name
+    public function department() {
+        return $this->belongsTo(Department::class,'department_id');
+    }
 }
