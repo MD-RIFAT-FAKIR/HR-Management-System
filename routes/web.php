@@ -12,6 +12,7 @@ use App\Http\Controllers\backend\CountryController;
 use App\Http\Controllers\backend\LocationController;
 use App\Http\Controllers\backend\DepartmentController;
 use App\Http\Controllers\backend\ManagerController;
+use App\Http\Controllers\backend\MyAcountController;
 
 /*
 |--------------------------------------------------------------------------
@@ -154,6 +155,10 @@ Route::group(['middleware' => 'admin'], function() {
   Route::get('admin/manager/excel', [ManagerController::class,'Export']);
   //end xl file
   //end managet all route
+
+  //my acount all route
+  Route::get('admin/my_acount', [MyAcountController::class,'MyAcount']);
+  //end my acount all route
 
 });
 

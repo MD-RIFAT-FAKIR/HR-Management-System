@@ -129,6 +129,14 @@
               </p>
             </a>
           </li>       
+          <li class="nav-item">
+            <a href="{{ url('admin/my_acount') }}" class="nav-link {{ (Request::segment(2)) == 'my_acount' ? 'active' : '' }}">
+              <i class="nav-icon fa fa-cog"></i>
+              <p>
+                My Acount
+              </p>
+            </a>
+          </li>       
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
