@@ -18,11 +18,6 @@ class DepartmentExport implements FromCollection, ShouldAutoSize,
     protected $index = 0;
 
     public function map($user):array {
-      if($user->manager_id == 1) {
-        $manager_name = 'Rifat';
-      }else{
-        $manager_name = 'Fakir';
-      }
 
       $created_date = date('d-m-Y H:i A', strtotime($user->created_at));
 
@@ -30,7 +25,7 @@ class DepartmentExport implements FromCollection, ShouldAutoSize,
         ++$this->index,
         $user->id,
         $user->department_name,
-        $manager_name,
+        $user->manager_name,
         $user->street_address,
         $created_date
       ];
