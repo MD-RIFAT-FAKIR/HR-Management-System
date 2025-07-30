@@ -19,12 +19,14 @@ class ManagerExport implements FromCollection, ShouldAutoSize,
     protected $index = 0;
 
     public function map($user): array {
+      $created_date = date("d-m-Y H:i A", strtotime($user->created_at));
       return[
         ++$this->index,
         $user->id,
         $user->manager_name,
         $user->manager_email,
         $user->manager_mobile,
+        $created_date
       ];
     }
 
@@ -35,6 +37,7 @@ class ManagerExport implements FromCollection, ShouldAutoSize,
         "Manager Name",
         "Manager Email",
         "Manager Mobile",
+        "Created At",
       ];
     }
 
