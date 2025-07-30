@@ -64,7 +64,8 @@ class EmployeesController extends Controller
     public function EditEmployee($id) {
         $employee = User::find($id);
         $job_title = Job::get();
-        return view('backend.employees.edit', compact('employee', 'job_title'));
+        $department = Department::get();
+        return view('backend.employees.edit', compact('employee', 'job_title','department'));
     }
 
     //employee update

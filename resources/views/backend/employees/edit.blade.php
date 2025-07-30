@@ -114,8 +114,9 @@
                     <div class="col-sm-10">
                       <select class="form-control" name="department_id" required>
                         <option value="">---  Select Department Name  ---</option>
-                        <option {{ ($employee->department_id == 1) ? 'selected' : '' }} value="1">ABC</option>
-                        <option {{ ($employee->department_id == 2) ? 'selected' : '' }} value="2">XYZ</option>
+                        @foreach($department as $value)
+                        <option {{ ($employee->department_id == $value->id) ? 'selected' : '' }} value="{{ $value->id }}">{{ $value->department_name }}</option>
+                        @endforeach
                       </select>
                     </div>
                   </div> 
