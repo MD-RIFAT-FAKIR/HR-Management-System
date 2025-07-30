@@ -5,6 +5,7 @@ namespace App\Http\Controllers\backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Department;
+use App\Models\Manager;
 use App\Models\Location;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\DepartmentExport;
@@ -19,6 +20,7 @@ class DepartmentController extends Controller
 
     public function Add(Request $request) {
         $data['getLocation'] = Location::all();
+        $data['getManager'] = Manager::all();
         return view("backend.departments.add", $data);
     }
 

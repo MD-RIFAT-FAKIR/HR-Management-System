@@ -49,8 +49,9 @@
                     <div class="col-sm-10">
                       <select class="form-control" name="manager_id">
                         <option value="">--- Select Manager Name ---</option>
-                        <option value="1">Rifat</option>
-                        <option value="2">Fakir</option>
+                        @foreach($getManager as $value)
+                        <option value="{{ $value->id }}">{{ $value->manager_name }}</option>
+                        @endforeach
                       </select>
                       @error('manager_id')
                         <span style="color:red;">{{ $message }}</span>
