@@ -5,6 +5,8 @@ namespace App\Http\Controllers\backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Manager;
+use App\Exports\ManagerExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ManagerController extends Controller
 {
@@ -56,5 +58,10 @@ class ManagerController extends Controller
         $manager->delete();
 
         return redirect()->back()->with('error','Manager Deleted Successfully');
+    }
+
+    //excel file export
+    public function Export(Request $request) {
+        return Excel::download(new ManagerExport, 'manager.xlsx');
     }
 }

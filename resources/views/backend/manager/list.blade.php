@@ -12,7 +12,11 @@
             <h1>Manager</h1>
           </div><!-- /.col -->
           <div class="col-sm-6" style="text-align: right;">
-            
+            <form action="{{ url('admin/manager/excel') }}" method="get">
+               <input type="hidden" name="start_date" value="{{ Request()->start_date }}">
+               <input type="hidden" name="end_date" value="{{ Request()->end_date }}">
+               <a class="btn btn-success" href="{{ url('admin/manager/excel?start_date='.Request::get('start_date').'&end_date='.Request::get('end_date')) }}">Excel Export</a>
+            </form>
 
             <br>
             <a href="{{ url('admin/manager/add') }}" class="btn btn-primary">Add Manager</a>
@@ -50,6 +54,14 @@
                       <label>Manager Mobile</label>
                       <input type="text" name="manager_mobile" value="{{ Request()->manager_mobile }}" class="form-control" placeholder="Enter Manager Mobile">
                     </div>                   
+                    <div class="form-gorup col-md-3">
+                      <label>Start Date</label>
+                      <input type="date" name="start_date" value="{{ Request()->start_date }}" class="form-control">
+                    </div>                   
+                    <div class="form-gorup col-md-3">
+                      <label>End Date</label>
+                      <input type="date" name="end_date" value="{{ Request()->end_date }}" class="form-control">
+                    </div>                   
                     <div class="form-gorup col-md-2">
                       <button type="submit" class="btn btn-primary" style="margin-top: 30px;">Search</button>
                       <a href="{{ url('admin/manager') }}" class="btn btn-success" style="margin-top: 30px;">Reset</a>
@@ -72,6 +84,7 @@
                       <th>Manger Name</th>
                       <th>Manger Email</th>
                       <th>Manger Mobile</th>
+                      <th>Created At</th>
                       <th>Actions</th>
                     </tr>
                   </thead>
@@ -81,7 +94,8 @@
                       <td>{{$value->id }}</td>                     
                       <td>{{$value->manager_name }}</td>                     
                       <td>{{$value->manager_email }}</td>                     
-                      <td>{{$value->manager_mobile }}</td>                                   
+                      <td>{{$value->manager_mobile }}</td>   
+                      <td>{{ date('d-m-Y H:i A', strtotime($value->created_at)) }}</td>                                
                       <td>
                         <a href="{{ url('admin/manager/edit', $value->id) }}" class="btn btn-success">Edit</a>
                         <a href="{{ url('admin/manager/delete', $value->id) }}" onclick="return confirm('Are your sure you want to delete')" class="btn btn-danger">Delete</a>

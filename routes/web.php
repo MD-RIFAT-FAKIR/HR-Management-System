@@ -150,7 +150,9 @@ Route::group(['middleware' => 'admin'], function() {
   Route::get('admin/manager/edit/{id}', [ManagerController::class,'Edit']);
   Route::post('admin/manager/update/{id}', [ManagerController::class,'Update']);
   Route::get('admin/manager/delete/{id}', [ManagerController::class,'Delete']);
-
+  //export xl file
+  Route::get('admin/manager/excel', [ManagerController::class,'Export']);
+  //end xl file
   //end managet all route
 
 });
