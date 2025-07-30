@@ -104,8 +104,9 @@
                     <div class="col-sm-10">
                       <select class="form-control" name="manager_id" required>
                         <option value="">---  Select Manager Name  ---</option>
-                        <option value="1">ABC</option>
-                        <option value="2">XYZ</option>
+                        @foreach($manager as $value)
+                        <option value="{{ $value->id }}">{{ $value->manager_name }}</option>
+                        @endforeach
                       </select>
                     </div>
                   </div> 
