@@ -13,6 +13,7 @@ use App\Http\Controllers\backend\LocationController;
 use App\Http\Controllers\backend\DepartmentController;
 use App\Http\Controllers\backend\ManagerController;
 use App\Http\Controllers\backend\MyAcountController;
+use App\Http\Controllers\backend\PayRollController;
 
 /*
 |--------------------------------------------------------------------------
@@ -160,6 +161,10 @@ Route::group(['middleware' => 'admin'], function() {
   Route::get('admin/my_acount', [MyAcountController::class,'MyAcount']);
   Route::post('admin/my_acount/update', [MyAcountController::class,'UpdateAcount']);
   //end my acount all route
+
+  //payrole all route
+  Route::get('admin/payroll', [PayRollController::class, 'Index']);
+  //end payrole all route
 
 });
 

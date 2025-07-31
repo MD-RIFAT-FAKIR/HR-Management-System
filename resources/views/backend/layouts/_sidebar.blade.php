@@ -139,6 +139,14 @@
               </p>
             </a>
           </li>       
+          <li class="nav-item">
+            <a href="{{ url('admin/payroll') }}" class="nav-link {{ (Request::segment(2)) == 'payroll' ? 'active' : '' }}">
+              <i class="nav-icon fa fa-credit-card"></i>
+              <p>
+               Pay Roll
+              </p>
+            </a>
+          </li>       
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
