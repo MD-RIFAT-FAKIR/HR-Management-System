@@ -52,4 +52,24 @@ class PayRollController extends Controller
         $data['user'] = User::where('is_role', '=', 0)->get();
         return View('backend.payrolls.edit', $data);
     }
+
+    public function Update(Request $request, $id) {
+        $user = PayRoll::findOrFail($id);
+
+        $user->employee_id        = trim($request->employee_id);
+        $user->number_of_day_work = trim($request->number_of_day_work);
+        $user->bonus              = trim($request->bonus);
+        $user->over_time          = trim($request->over_time);
+        $user->gross_salary       = trim($request->gross_salary);
+        $user->cash_advance       = trim($request->cash_advance);
+        $user->late_hours         = trim($request->late_hours);
+        $user->absent_days        = trim($request->absent_days);
+        $user->sss_contribution   = trim($request->sss_contribution);
+        $user->philhealth         = trim($request->philhealth);
+        $user->total_deductions   = trim($request->total_deductions);
+        $user->netpay             = trim($request->netpay);
+        $user->payroll_monthly    = trim($request->payroll_monthly);
+        $user->save();
+        return redirect('admin/payroll')->with('success','Pay Roll Updated Successfully');
+    }
 }
