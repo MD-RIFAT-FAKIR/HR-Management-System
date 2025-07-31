@@ -51,7 +51,7 @@
                     <label class="col-sm-2 col-form-table">Email<span style="color: red;">*</span>                    
                     </label>
                     <div class="col-sm-10">
-                      <input class="form-control" type="email" name="email" value="{{ $employee->email }}" placeholder="Enter Email" required>
+                      <input class="form-control" type="email" name="email" value="{{ $employee->email }}" placeholder="Enter Email" >
                       <span style="color: red;">{{ $errors->first('email') }}</span>
                     </div>
                   </div>
@@ -64,17 +64,29 @@
                     </div>
                   </div>
                   <div class="form-gorup row mt-2">
+                    <label class="col-sm-2 col-form-table">Profile Image<span style="color: red;"></span>                    
+                    </label>
+                    <div class="col-sm-10">
+                      <input class="form-control" type="file" name="profile_img">
+                      @if(!empty($employee->profile_img))
+                          @if(file_exists('upload/'.$employee->profile_img))
+                            <img style="width: 80px; height: 80px" src="{{ url('upload/'.$employee->profile_img)}}">
+                          @endif
+                      @endif
+                    </div>
+                  </div>
+                  <div class="form-gorup row mt-2">
                     <label class="col-sm-2 col-form-table">Hire Date<span style="color: red;">*</span>                    
                     </label>
                     <div class="col-sm-10">
-                      <input class="form-control" type="date" name="hire_date" value="{{ $employee->hire_date }}" required>
+                      <input class="form-control" type="date" name="hire_date" value="{{ $employee->hire_date }}">
                     </div>
                   </div>
                   <div class="form-gorup row mt-2">
                     <label class="col-sm-2 col-form-table">Job Title<span style="color: red;">*</span>                    
                     </label>
                     <div class="col-sm-10">
-                      <select class="form-control" name="job_id" required>
+                      <select class="form-control" name="job_id" >
                         @foreach($job_title as $value)
                         <option {{ ($value->id == $employee->job_id ) ? 'selected' : '' }} value="{{ $value->id }}">{{ $value->job_title }}</option>
                         @endforeach
@@ -85,7 +97,7 @@
                     <label class="col-sm-2 col-form-table">Salary<span style="color: red;">*</span>                    
                     </label>
                     <div class="col-sm-10">
-                      <input class="form-control" type="number" name="salary" placeholder="Enter Salary" value="{{ $employee->salary }}"  required>
+                      <input class="form-control" type="number" name="salary" placeholder="Enter Salary" value="{{ $employee->salary }}" >
                       <span style="color: red;">{{ $errors->first('salary') }}</span>
                     </div>
                   </div>
@@ -93,7 +105,7 @@
                     <label class="col-sm-2 col-form-table">Commision PCT<span style="color: red;">*</span>                    
                     </label>
                     <div class="col-sm-10">
-                      <input class="form-control" type="number" name="commision_pct" value="{{ $employee->commision_pct }}" placeholder="Enter Commision PCT" required>
+                      <input class="form-control" type="number" name="commision_pct" value="{{ $employee->commision_pct }}" placeholder="Enter Commision PCT">
                       <span style="color: red;">{{ $errors->first('commision_pct') }}</span>
                     </div>
                   </div>
@@ -101,7 +113,7 @@
                     <label class="col-sm-2 col-form-table">Manager Name<span style="color: red;">*</span>                    
                     </label>
                     <div class="col-sm-10">
-                      <select class="form-control" name="manager_id" required>
+                      <select class="form-control" name="manager_id" >
                         <option value="">---  Select Manager Name  ---</option>
                         @foreach($manager as $value)
                         <option {{ ($employee->manager_id == $value->id) ? 'selected' : '' }} value="{{ $value->id }}">{{ $value->manager_name }}</option>
@@ -113,7 +125,7 @@
                     <label class="col-sm-2 col-form-table">Department Name<span style="color: red;">*</span>                    
                     </label>
                     <div class="col-sm-10">
-                      <select class="form-control" name="department_id" required>
+                      <select class="form-control" name="department_id">
                         <option value="">---  Select Department Name  ---</option>
                         @foreach($department as $value)
                         <option {{ ($employee->department_id == $value->id) ? 'selected' : '' }} value="{{ $value->id }}">{{ $value->department_name }}</option>
