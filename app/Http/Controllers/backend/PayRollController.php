@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\PayRoll;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\PayrollExport;
 
 class PayRollController extends Controller
 {
@@ -78,5 +80,9 @@ class PayRollController extends Controller
         $user->delete();
 
         return redirect()->back()->with('error','Pay Roll Deleted Successfully');
+    }
+
+    public function Export() {
+        return Excel::download(new PayrollExport,'payroll.xlsx');
     }
 }

@@ -12,9 +12,8 @@
             <h1>Pay Roll</h1>
           </div><!-- /.col -->
           <div class="col-sm-6" style="text-align: right;">
-            
-
-            <br>
+            <a class="btn btn-success" href="{{ url('admin/payroll/excel_export') }}">Excel Export</a>
+            <br></br>
             <a href="{{ url('admin/payroll/add') }}" class="btn btn-primary">Add Pay Roll</a>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -55,14 +54,6 @@
                       <label>
                         Over Time</label>
                       <input type="number" name="over_time" value="{{ Request()->over_time }}" class="form-control" placeholder="Over Time">
-                    </div>
-                    <div class="form-gorup col-md-3">
-                      <label>Created Date</label>
-                      <input type="date" name="created_at" value="{{ Request()->created_at }}" class="form-control">
-                    </div>
-                    <div class="form-gorup col-md-3">
-                      <label>Updated Date</label>
-                      <input type="date" name="updated_at" value="{{ Request()->updated_at }}" class="form-control">
                     </div>
                     <div class="form-gorup col-md-3">
                       <button type="submit" class="btn btn-primary" style="margin-top: 30px;">Search</button>
