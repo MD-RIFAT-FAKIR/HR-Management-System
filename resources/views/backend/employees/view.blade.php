@@ -75,6 +75,17 @@
                 </div>
               </div>
               <div class="form-gorup row mt-2">
+                <label class="col-sm-2 col-form-table">Profile Image<span style="color: red;"></span>                    
+                </label>
+                <div class="col-sm-10">
+                  @if(!empty($employee->profile_img) && file_exists('upload/'.$employee->profile_img))
+                    <img class="img-thumbnail" style="width:60px; height: 60px; object-fit: cover;" src="{{ url('upload/'.$employee->profile_img) }}">
+                  @else
+                    <span class="badge bg-secondary">No Image</span> 
+                  @endif
+                </div>
+              </div>
+              <div class="form-gorup row mt-2">
                 <label class="col-sm-2 col-form-table">Hire Date<span style="color: red;"></span>                    
                 </label>
                 <div class="col-sm-10">
