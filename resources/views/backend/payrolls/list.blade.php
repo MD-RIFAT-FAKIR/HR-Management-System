@@ -63,7 +63,7 @@
                         <td>
                           <a href="{{ url('admin/payroll/view', $value->id) }}" class="btn btn-info mt-1">view</a>
                           <a href="{{ url('admin/payroll/edit', $value->id) }}" class="btn btn-primary mt-1">Edit</a>
-                          <a href="{{ url('admin/job_history/delete', $value->id) }}" onclick="return confirm('Are your sure you want to delete')" class="btn btn-danger mt-1">Delete</a>
+                          <a href="{{ url('admin/payroll/delete', $value->id) }}" onclick="return confirm('Are your sure you want to delete')" class="btn btn-danger mt-1">Delete</a>
                       </td>
                       </tr>
                       @empty
@@ -74,7 +74,7 @@
                   </tbody>
                 </table>
                 <div style="padding: 10px; float: right;">
-
+                  {!! $getRecord->links() !!}
                 </div>
               </div>
             </div>
