@@ -31,8 +31,47 @@
               <div class="card-header">
                 <h3 class="card-title">Search Pay Roll</h3>
               </div>
+              <form method="get" action="">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="form-gorup col-md-3">
+                      <label>ID</label>
+                      <input type="text" name="id" value="{{ Request()->id }}" class="form-control" placeholder="ID">
+                    </div>
+                    <div class="form-gorup col-md-3">
+                      <label>Employee Name</label>
+                      <input type="text" name="employee_id" value="{{ Request()->employee_id }}" class="form-control" placeholder="Enter Employee Name">
+                    </div>
+                    <div class="form-gorup col-md-3">
+                      <label>Number of Work Days</label>
+                      <input type="number" name="number_of_day_work" value="{{ Request()->number_of_day_work }}" class="form-control" placeholder="Number of Work Days">
+                    </div>
+                    <div class="form-gorup col-md-3">
+                      <label>
+                        Bonus</label>
+                      <input type="number" name="bonus" value="{{ Request()->bonus }}" class="form-control" placeholder="Bonus">
+                    </div>
+                    <div class="form-gorup col-md-3">
+                      <label>
+                        Over Time</label>
+                      <input type="number" name="over_time" value="{{ Request()->over_time }}" class="form-control" placeholder="Over Time">
+                    </div>
+                    <div class="form-gorup col-md-3">
+                      <label>Created Date</label>
+                      <input type="date" name="created_at" value="{{ Request()->created_at }}" class="form-control">
+                    </div>
+                    <div class="form-gorup col-md-3">
+                      <label>Updated Date</label>
+                      <input type="date" name="updated_at" value="{{ Request()->updated_at }}" class="form-control">
+                    </div>
+                    <div class="form-gorup col-md-3">
+                      <button type="submit" class="btn btn-primary" style="margin-top: 30px;">Search</button>
+                      <a href="{{ url('admin/payroll') }}" class="btn btn-success" style="margin-top: 30px;">Reset</a>
+                    </div>
 
-
+                  </div>
+                </div>
+              </form>
             </div>
             @include('message')
 
