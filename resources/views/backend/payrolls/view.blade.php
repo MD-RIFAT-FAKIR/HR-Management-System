@@ -43,7 +43,7 @@
                 <label class="col-sm-2 col-form-table">Employee ID<span style="color: red;"></span>                    
                 </label>
                 <div class="col-sm-10">
-                  {{ $getRecord->employee_id }}
+                  {{ (!empty($getRecord->user->name) ? $getRecord->user->name : '') }}
                 </div>
               </div>
               <div class="form-gorup row mt-2">
