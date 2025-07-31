@@ -55,6 +55,19 @@
                     </div>
                   </div>
                   <div class="form-gorup row mt-2">
+                    <label class="col-sm-2 col-form-table">Profiel Image<span style="color: red;"></span>                    
+                    </label>
+                    <div class="col-sm-10">
+                      <input class="form-control" type="file" name="profile_img" value="{{ old('profile_img') }}">
+                      @if(!empty($getRecord->profile_img))
+                          @if(file_exists('upload/'.$getRecord->profile_img))
+                            <img style="width: 80px; height: 80px" src="{{ url('upload/'.$getRecord->profile_img)}}">
+                          @endif
+                      @endif
+                      <span style="color: red;">{{ $errors->first('profile_img') }}</span>
+                    </div>
+                  </div>
+                  <div class="form-gorup row mt-2">
                     <label class="col-sm-2 col-form-table">Password<span style="color: red;">*</span>                    
                     </label>
                     <div class="col-sm-10">

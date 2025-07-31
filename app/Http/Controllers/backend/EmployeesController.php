@@ -84,7 +84,7 @@ class EmployeesController extends Controller
             'email' => 'required|unique:users,email,'.$id
         ]);
 
-        $user = User::find($id);
+        $user               = User::find($id);
         $user->last_name     = trim($request->last_name);
         $user->phone_number  = trim($request->phone_number);
         $user->email         = trim($request->email);
