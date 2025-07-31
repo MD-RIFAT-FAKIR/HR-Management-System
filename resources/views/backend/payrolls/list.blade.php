@@ -92,7 +92,17 @@
                     </tr>
                   </thead>
                   <tbody>
+                    @php
+                      $numberOfWorkDay = 0;
+                      $bonos = 0;
+                      $overTime = 0;
+                    @endphp
                      @forelse($getRecord as $value)
+                     @php 
+                        $numberOfWorkDay += $value->number_of_day_work;
+                        $bonos += $value->bonus;
+                        $overTime += $value->over_time;
+                     @endphp
                       <tr>
                         <td>{{ $value->id }}</td>
                         <td>{{ $value->name }}</td>
@@ -110,6 +120,21 @@
                         <td colspan="100%" style="color: red;">No Record Found.</td>
                       </tr>
                     @endforelse
+                    <tfoot>
+                      <tr>
+                        <th colspan="2">Sub Total</th>
+                        <td>
+                          {{ $numberOfWorkDay }}
+                        </td>
+                        <td>
+                          {{ $bonos }}
+                        </td>
+                        <td>
+                          {{ $overTime }}
+                        </td>
+                        <th colspan="1">Sub Total</th>
+                      </tr>
+                    </tfoot>
                   </tbody>
                 </table>
                 <div style="padding: 10px; float: right;">
