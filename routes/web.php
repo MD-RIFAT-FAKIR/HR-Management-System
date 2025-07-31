@@ -165,6 +165,7 @@ Route::group(['middleware' => 'admin'], function() {
   //payrole all route
   Route::get('admin/payroll', [PayRollController::class, 'Index']);
   Route::get('admin/payroll/add', [PayRollController::class,'Add']);
+  Route::post('admin/payroll/store', [PayRollController::class,'Store']);
   //end payrole all route
 
 });
