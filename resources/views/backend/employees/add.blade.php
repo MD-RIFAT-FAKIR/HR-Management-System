@@ -64,6 +64,14 @@
                     </div>
                   </div>
                   <div class="form-gorup row mt-2">
+                    <label class="col-sm-2 col-form-table">Profiel Image<span style="color: red;"></span>                    
+                    </label>
+                    <div class="col-sm-10">
+                      <input class="form-control" type="file" name="profile_img" value="{{ old('profile_img') }}">
+                      <span style="color: red;">{{ $errors->first('phone_number') }}</span>
+                    </div>
+                  </div>
+                  <div class="form-gorup row mt-2">
                     <label class="col-sm-2 col-form-table">Hire Date<span style="color: red;">*</span>                    
                     </label>
                     <div class="col-sm-10">

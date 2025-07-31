@@ -8,6 +8,8 @@ use App\Models\User;
 use App\Models\Job;
 use App\Models\Department;
 use App\Models\Manager;
+use Str;
+use File;
 
 class EmployeesController extends Controller
 {
@@ -38,18 +40,25 @@ class EmployeesController extends Controller
         ]);
 
 
-        $user               = new User;
-        $user->name          = trim($request->name);
-        $user->last_name     = trim($request->last_name);
-        $user->phone_number  = trim($request->phone_number);
-        $user->email         = trim($request->email);
-        $user->hire_date     = trim($request->hire_date);
-        $user->salary        = trim($request->salary);
-        $user->job_id        = trim($request->job_id);
-        $user->commision_pct = trim($request->commision_pct);
-        $user->manager_id    = trim($request->manager_id);
-        $user->department_id = trim($request->department_id);
-        $user->is_role       = 0;
+        $user                = new User;
+        $user->name           = trim($request->name);
+        $user->last_name      = trim($request->last_name);
+        $user->phone_number   = trim($request->phone_number);
+        $user->email          = trim($request->email);
+        $user->hire_date      = trim($request->hire_date);
+        $user->salary         = trim($request->salary);
+        $user->job_id         = trim($request->job_id);
+        $user->commision_pct  = trim($request->commision_pct);
+        $user->manager_id     = trim($request->manager_id);
+        $user->department_id  = trim($request->department_id);
+        $user->is_role        = 0;
+        if(!empty($request->file('profile_img'))) {
+            $file             = $request->file('profile_img');
+            $strRandom       = Str::random(30);
+            $fileName         = $strRandom.'.'.$file->getClientOriginalExtension();
+            $file->move('upload/', $fileName);
+            $user->profile_img = $fileName;
+        }
         $user->save();
 
         return redirect('admin/employees')->with('success', 'Employee Registered Successfully');

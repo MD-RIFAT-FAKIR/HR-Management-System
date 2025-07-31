@@ -34,7 +34,7 @@
 
                     <div class="form-gorup col-md-1">
                       <label>ID</label>
-                      <input type="text" name="id" value="{{ Request()->id }}" class="form-control" placeholder="First Name">
+                      <input type="text" name="id" value="{{ Request()->id }}" class="form-control" placeholder="ID">
                     </div>
                     <div class="form-gorup col-md-3">
                       <label>First Name</label>
@@ -74,6 +74,7 @@
                       <th>First Name</th>
                       <th>Last Name</th>
                       <th>Email</th>
+                      <th>Profile</th>
                       <th>Role</th>
                       <th>Actions</th>
                     </tr>
@@ -85,6 +86,11 @@
                       <td>{{ $value->name }}</td>
                       <td>{{ $value->last_name }}</td>
                       <td>{{ $value->email }}</td>
+                      @if(!empty($value->profile_img))
+                        @if(file_exists('upload/'.$value->profile_img))
+                          <td><img style="width:80px; height: 80px" src="{{ url('upload/'.$value->profile_img) }}" ></td>
+                        @endif
+                      @endif
                       <td>{{ (!empty($value->is_role) ? 'HR' : 'Employee') }}</td>
                       <td>
                         <a href="{{ url('admin/employees/view', $value->id) }}" class="btn btn-info">View</a>
