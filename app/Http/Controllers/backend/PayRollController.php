@@ -40,7 +40,10 @@ class PayRollController extends Controller
             $user->save();
             return redirect('admin/payroll')->with('success','Pay Roll Saved Successfully');
 
+    }
 
-
+    public function View($id) {
+        $data['getRecord'] = PayRoll::findOrFail($id);
+        return view('backend.payrolls.view', $data);
     }
 }
