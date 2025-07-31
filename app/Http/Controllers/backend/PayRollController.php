@@ -10,8 +10,9 @@ use App\Models\PayRoll;
 class PayRollController extends Controller
 {
     //
-    public function Index() {
-        return view("backend.payrolls.list");
+    public function Index(Request $request) {
+        $data['getRecord'] = PayRoll::getRecord($request);
+        return view("backend.payrolls.list", $data);
     }
 
     public function Add() {

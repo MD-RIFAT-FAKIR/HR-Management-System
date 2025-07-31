@@ -45,15 +45,31 @@
                   <thead>
                     <tr>
                       <th>ID</th>
-                      <th>Job Title</th>
-                      <th>Min Salary</th>
-                      <th>Max Salary</th>
-                      <th>Created Date</th>
+                      <th>Employee Name</th>
+                      <th>Number of Work Days</th>
+                      <th>Bonus</th>
+                      <th>Over Time</th>
                       <th>Actions</th>
                     </tr>
                   </thead>
                   <tbody>
-
+                     @forelse($getRecord as $value)
+                      <tr>
+                        <td>{{ $value->id }}</td>
+                        <td>{{ $value->name }}</td>
+                        <td>{{ $value->number_of_day_work }}</td>
+                        <td>{{ $value->bonus }}</td>
+                        <td>{{ $value->over_time }}</td>
+                        <td>
+                          <a href="{{ url('admin/job_history/edit', $value->id) }}" class="btn btn-success mt-1">Edit</a>
+                          <a href="{{ url('admin/job_history/delete', $value->id) }}" onclick="return confirm('Are your sure you want to delete')" class="btn btn-danger mt-1">Delete</a>
+                      </td>
+                      </tr>
+                      @empty
+                      <tr>
+                        <td colspan="100%" style="color: red;">No Record Found.</td>
+                      </tr>
+                    @endforelse
                   </tbody>
                 </table>
                 <div style="padding: 10px; float: right;">

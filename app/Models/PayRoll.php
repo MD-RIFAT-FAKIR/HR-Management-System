@@ -12,4 +12,17 @@ class PayRoll extends Model
 
     protected $table = 'payroll'; //db table name
 
+    static public function getRecord($request) {
+
+        $return = self::select('payroll.*', 'users.name')
+                  ->join('users','users.id', '=', 'payroll.employee_id')
+                  ->orderBy('payroll.id' , 'desc');
+
+                 $return = $return->paginate(20);
+
+                  return $return;
+
+
+    }
+
 }
