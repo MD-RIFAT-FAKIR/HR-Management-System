@@ -46,4 +46,10 @@ class PayRollController extends Controller
         $data['getRecord'] = PayRoll::findOrFail($id);
         return view('backend.payrolls.view', $data);
     }
+
+    public function Edit($id) {
+        $data['payRoll'] = PayRoll::findOrFail($id);
+        $data['user'] = User::where('is_role', '=', 0)->get();
+        return View('backend.payrolls.edit', $data);
+    }
 }
