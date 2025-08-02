@@ -128,6 +128,13 @@
                 </div>
               </div>
               <div class="form-gorup row mt-2">
+                <label class="col-sm-2 col-form-table">Position<span style="color: red;"></span>                    
+                </label>
+                <div class="col-sm-10">
+                  {{ (!empty($employee->position->position_name) ? $employee->position->position_name : '') }}
+                </div>
+              </div>
+              <div class="form-gorup row mt-2">
                 <label class="col-sm-2 col-form-table">Crited Date<span style="color: red;"></span>                    
                 </label>
                 <div class="col-sm-10">

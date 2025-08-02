@@ -80,4 +80,8 @@ class User extends Authenticatable
     public function department() {
         return $this->belongsTo(Department::class,'department_id');
     }
+    //relation between user model and department model to get department's name
+    public function position() {
+        return $this->belongsTo(Position::class,'position_id');
+    }
 }
