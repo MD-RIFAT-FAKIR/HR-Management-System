@@ -4,6 +4,7 @@ namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Position;
 
 class PositionConrtoller extends Controller
 {
@@ -14,5 +15,23 @@ class PositionConrtoller extends Controller
 
     public function Add() {
         return view("backend.position.add");
+    }
+
+    public function Store(Request $request) {
+        $request->validate([
+            "position_name"          => "required",
+            "daily_rate"             => "required",
+            "monthly_rate"           => "required",
+            "working_days_per_month" => "required",
+        ]);
+
+        $user                        = new Position;
+        $user->position_name          = trim($request->position_name);
+        $user->daily_rate             = trim($request->daily_rate);
+        $user->monthly_rate           = trim($request->monthly_rate);
+        $user->working_days_per_month = trim($request->working_days_per_month);
+        $user->save();
+
+        return redirect('admin/position')->with("success","Position Added Successfully");
     }
 }

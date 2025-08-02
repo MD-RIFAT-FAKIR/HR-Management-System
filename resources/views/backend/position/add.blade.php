@@ -30,7 +30,7 @@
               <div class="card-header">
                 <h3 class="card-title">Add Position</h3>
               </div>
-              <form class="form-horaizontal" action="{{ url('admin/payroll/store') }}" method="post" enctype="multipart/form-data">
+              <form class="form-horizontal" action="{{ url('admin/position/store') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="card-body">
                 
@@ -45,14 +45,14 @@
                     <label class="col-sm-2 col-form-table">Daily Rate<span style="color: red;">*</span>                    
                     </label>
                     <div class="col-sm-10">
-                      <input class="form-control" type="number" name="Daily Rate" value="{{ old('daily_rate') }}" placeholder="Enter daily_rate">
+                      <input class="form-control" type="number" name="daily_rate" value="{{ old('daily_rate') }}" placeholder="Enter Daily Rate">
                     </div>
                   </div>            
                   <div class="form-gorup row mt-2">
                     <label class="col-sm-2 col-form-table">Monthly Rate<span style="color: red;">*</span>                    
                     </label>
                     <div class="col-sm-10">
-                      <input class="form-control" type="number" name="monthly_rate	" value="{{ old('monthly_rate	') }}" placeholder="Enter Monthly Rate">
+                      <input class="form-control" type="number" name="monthly_rate" value="{{ old('monthly_rate	') }}" placeholder="Enter Monthly Rate">
                     </div>
                   </div>            
                   <div class="form-gorup row mt-2">
