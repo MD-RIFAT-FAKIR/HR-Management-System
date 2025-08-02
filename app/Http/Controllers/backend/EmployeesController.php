@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\Job;
 use App\Models\Department;
 use App\Models\Manager;
+use App\Models\Position;
 use Str;
 use File;
 
@@ -24,7 +25,8 @@ class EmployeesController extends Controller
         $job_title = Job::get();
         $department = Department::get();
         $manager = Manager::get();
-        return view('backend.employees.add', compact('job_title','department','manager'));
+        $position = Position::get();
+        return view('backend.employees.add', compact('job_title','department','manager', 'position'));
     }
     //employee store
     public function Store(Request $request) {
