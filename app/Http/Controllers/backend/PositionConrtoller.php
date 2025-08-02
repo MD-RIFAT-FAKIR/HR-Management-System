@@ -35,4 +35,9 @@ class PositionConrtoller extends Controller
 
         return redirect('admin/position')->with("success","Position Added Successfully");
     }
+
+    public function Edit($id) {
+        $data["getPosition"] = Position::findOrFail($id);
+        return view("backend.position.edit", $data);
+    }
 }

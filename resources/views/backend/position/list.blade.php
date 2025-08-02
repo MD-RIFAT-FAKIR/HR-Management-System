@@ -64,7 +64,7 @@
                         <td>{{ date('d-m-Y H:i A', strtotime($value->created_at)) }}</td>
                         <td>{{ date('d-m-Y H:i A', strtotime($value->updated_at)) }}</td>
                         <td>
-                            <a href="{{ url('admin/payroll/edit', $value->id) }}" class="btn btn-primary mt-1">Edit</a>
+                            <a href="{{ url('admin/position/edit', $value->id) }}" class="btn btn-primary mt-1">Edit</a>
                             <a href="{{ url('admin/payroll/delete', $value->id) }}" onclick="return confirm('Are your sure you want to delete')" class="btn btn-danger mt-1">Delete</a>
                         </td>
                       </tr>
