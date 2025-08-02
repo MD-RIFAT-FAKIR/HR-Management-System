@@ -39,6 +39,7 @@ class EmployeesController extends Controller
             'commision_pct' => 'required',
             'manager_id' => 'required',
             'department_id' => 'required',
+            'position_id'=> 'required',
         ]);
 
 
@@ -53,6 +54,7 @@ class EmployeesController extends Controller
         $user->commision_pct  = trim($request->commision_pct);
         $user->manager_id     = trim($request->manager_id);
         $user->department_id  = trim($request->department_id);
+        $user->position_id    = trim($request->position_id);
         $user->is_role        = 0;
         if(!empty($request->file('profile_img'))) {
             $file             = $request->file('profile_img');
