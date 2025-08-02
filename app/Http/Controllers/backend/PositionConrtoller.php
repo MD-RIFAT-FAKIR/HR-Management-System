@@ -9,8 +9,9 @@ use App\Models\Position;
 class PositionConrtoller extends Controller
 {
     //
-    public function Index() {
-        return view("backend.position.list");
+    public function Index(Request $request) {
+        $data['getRecord'] = Position::getRecord($request);
+        return view("backend.position.list", $data);
     }
 
     public function Add() {
