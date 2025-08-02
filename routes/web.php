@@ -178,6 +178,7 @@ Route::group(['middleware' => 'admin'], function() {
 
   //position all route
   Route::get('admin/position', [PositionConrtoller::class, 'Index']);
+  Route::get('admin/position/add', [PositionConrtoller::class, 'Add']);
   //end position all route
 
 });

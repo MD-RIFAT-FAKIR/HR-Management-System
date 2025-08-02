@@ -15,7 +15,7 @@
             
 
             <br></br>
-            <a href="{{ url('admin/payroll/add') }}" class="btn btn-primary">Add Position</a>
+            <a href="{{ url('admin/position/add') }}" class="btn btn-primary">Add Position</a>
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
