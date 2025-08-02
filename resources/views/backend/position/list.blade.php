@@ -31,7 +31,37 @@
               <div class="card-header">
                 <h3 class="card-title">Search Position</h3>
               </div>
-
+                            <form method="get" action="">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="form-gorup col-md-3">
+                      <label>ID</label>
+                      <input type="text" name="id" value="{{ Request()->id }}" class="form-control" placeholder="ID">
+                    </div>
+                    <div class="form-gorup col-md-3">
+                      <label>Position Name</label>
+                      <input type="text" name="position_name" value="{{ Request()->position_name }}" class="form-control" placeholder="Enter Position Name">
+                    </div>
+                    <div class="form-gorup col-md-3">
+                      <label>Daily Rate</label>
+                      <input type="number" name="daily_rate" value="{{ Request()->daily_rate }}" class="form-control" placeholder="Daily Rate">
+                    </div>
+                    <div class="form-gorup col-md-3">
+                      <label>
+                        Monthly Rate</label>
+                      <input type="number" name="monthly_rate" value="{{ Request()->monthly_rate }}" class="form-control" placeholder="Monthly Rate">
+                    </div>
+                    <div class="form-gorup col-md-3">
+                      <label>Working Days per Month</label>
+                      <input type="number" name="working_days_per_month" value="{{ Request()->working_days_per_month }}" class="form-control" placeholder="Working Days per Month">
+                    </div>
+                    <div class="form-gorup col-md-3">
+                      <button type="submit" class="btn btn-primary" style="margin-top: 30px;">Search</button>
+                      <a href="{{ url('admin/position') }}" class="btn btn-success" style="margin-top: 30px;">Reset</a>
+                    </div>
+                  </div>
+                </div>
+              </form>
             </div>
             @include('message')
 
@@ -65,7 +95,7 @@
                         <td>{{ date('d-m-Y H:i A', strtotime($value->updated_at)) }}</td>
                         <td>
                             <a href="{{ url('admin/position/edit', $value->id) }}" class="btn btn-primary mt-1">Edit</a>
-                            <a href="{{ url('admin/payroll/delete', $value->id) }}" onclick="return confirm('Are your sure you want to delete')" class="btn btn-danger mt-1">Delete</a>
+                            <a href="{{ url('admin/position/delete', $value->id) }}" onclick="return confirm('Are your sure you want to delete')" class="btn btn-danger mt-1">Delete</a>
                         </td>
                       </tr>
                       @empty

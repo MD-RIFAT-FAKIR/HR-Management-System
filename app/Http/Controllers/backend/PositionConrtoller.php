@@ -52,4 +52,11 @@ class PositionConrtoller extends Controller
 
         return redirect('admin/position')->with("success","Position Updated Successfully");
     }
+
+    public function Delete($id) {
+        $user = Position::findOrFail($id);
+        $user->delete();
+
+        return redirect()->back()->with("error","Position Deleted Successfully");
+    }
 }
