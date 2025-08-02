@@ -104,6 +104,9 @@ class EmployeesController extends Controller
         $user->department_id = trim($request->department_id);
         $user->position_id   = trim($request->position_id);
         $user->is_role       = 0;
+        if(!empty($request->password)) {
+            $user->password = Hash::make($request->password);
+        }
         if(!empty($request->file('profile_img'))) {
             if(!empty($user->profile_img) && file_exists('upload/'.$user->profile_img)) {
                 unlink('upload/'.$user->profile_img);
