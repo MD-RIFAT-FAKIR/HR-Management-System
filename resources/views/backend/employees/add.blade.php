@@ -56,6 +56,14 @@
                     </div>
                   </div>
                   <div class="form-gorup row mt-2">
+                    <label class="col-sm-2 col-form-table">Password<span style="color: red;">*</span>                    
+                    </label>
+                    <div class="col-sm-10">
+                      <input class="form-control" type="password" name="password" placeholder="Enter Password" required>
+                      <span style="color: red;">{{ $errors->first('email') }}</span>
+                    </div>
+                  </div>
+                  <div class="form-gorup row mt-2">
                     <label class="col-sm-2 col-form-table">Phone Number<span style="color: red;"></span>                    
                     </label>
                     <div class="col-sm-10">

@@ -11,6 +11,7 @@ use App\Models\Manager;
 use App\Models\Position;
 use Str;
 use File;
+use Hash;
 
 class EmployeesController extends Controller
 {
@@ -48,6 +49,7 @@ class EmployeesController extends Controller
         $user->last_name      = trim($request->last_name);
         $user->phone_number   = trim($request->phone_number);
         $user->email          = trim($request->email);
+        $user->password       = Hash::make($request->password);
         $user->hire_date      = trim($request->hire_date);
         $user->salary         = trim($request->salary);
         $user->job_id         = trim($request->job_id);
