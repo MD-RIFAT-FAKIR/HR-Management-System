@@ -132,7 +132,19 @@
                         @endforeach
                       </select>
                     </div>
-                  </div> 
+                  </div>
+                  <div class="form-gorup row mt-2">
+                    <label class="col-sm-2 col-form-table">Position<span style="color: red;">*</span>                    
+                    </label> 
+                    <div class="col-sm-10">
+                      <select class="form-control" name="position_id" required>
+                        <option value="">---  Select Employee position  ---</option>
+                        @foreach($position as $value)
+                        <option {{ ($value->id == $employee->position_id) ? 'selected' : '' }} value="{{ $value->id }}">{{ $value->position_name }}</option>
+                        @endforeach
+                      </select>
+                    </div>
+                  </div>
                   <div class="card-footer">
                     <a href="{{ url('admin/employees') }}" class="btn btn-default">Back</a>
                     <button type="submit" class="btn btn-primary float-right">Update</button>

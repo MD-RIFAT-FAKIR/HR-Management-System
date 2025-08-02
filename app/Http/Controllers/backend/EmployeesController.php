@@ -75,11 +75,12 @@ class EmployeesController extends Controller
     }//end
 
     public function EditEmployee($id) {
-        $employee = User::find($id);
-        $job_title = Job::get();
+        $employee   = User::find($id);
+        $job_title  = Job::get();
         $department = Department::get();
-        $manager = Manager::get();
-        return view('backend.employees.edit', compact('employee', 'job_title','department','manager'));
+        $manager    = Manager::get();
+        $position   = Position::get();
+        return view('backend.employees.edit', compact('employee', 'job_title','department','manager', 'position'));
     }
 
     //employee update
@@ -99,6 +100,7 @@ class EmployeesController extends Controller
         $user->commision_pct = trim($request->commision_pct);
         $user->manager_id    = trim($request->manager_id);
         $user->department_id = trim($request->department_id);
+        $user->position_id   = trim($request->position_id);
         $user->is_role       = 0;
         if(!empty($request->file('profile_img'))) {
             if(!empty($user->profile_img) && file_exists('upload/'.$user->profile_img)) {
