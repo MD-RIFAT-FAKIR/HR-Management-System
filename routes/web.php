@@ -14,6 +14,7 @@ use App\Http\Controllers\backend\DepartmentController;
 use App\Http\Controllers\backend\ManagerController;
 use App\Http\Controllers\backend\MyAcountController;
 use App\Http\Controllers\backend\PayRollController;
+use App\Http\Controllers\backend\PositionConrtoller;
 
 /*
 |--------------------------------------------------------------------------
@@ -174,6 +175,10 @@ Route::group(['middleware' => 'admin'], function() {
   Route::get('admin/payroll/excel_export', [PayRollController::class,'Export']);
   //pay roll xl export
   //end payrole all route
+
+  //position all route
+  Route::get('admin/position', [PositionConrtoller::class, 'Index']);
+  //end position all route
 
 });
 

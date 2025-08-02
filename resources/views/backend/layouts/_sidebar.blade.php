@@ -147,6 +147,14 @@
               </p>
             </a>
           </li>       
+          <li class="nav-item">
+            <a href="{{ url('admin/position') }}" class="nav-link {{ (Request::segment(2)) == 'position' ? 'active' : '' }}">
+              <i class="nav-icon fa fa-user"></i>
+              <p>
+               Position
+              </p>
+            </a>
+          </li>       
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
