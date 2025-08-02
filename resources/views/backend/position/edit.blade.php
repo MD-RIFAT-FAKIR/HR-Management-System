@@ -30,7 +30,7 @@
               <div class="card-header">
                 <h3 class="card-title">Edit Position</h3>
               </div>
-              <form class="form-horizontal" action="{{ url('admin/position/store') }}" method="post" enctype="multipart/form-data">
+              <form class="form-horizontal" action="{{ url('admin/position/update', $getPosition->id) }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="card-body">
                 

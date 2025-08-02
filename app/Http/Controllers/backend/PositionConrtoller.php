@@ -40,4 +40,16 @@ class PositionConrtoller extends Controller
         $data["getPosition"] = Position::findOrFail($id);
         return view("backend.position.edit", $data);
     }
+
+    public function Update(Request $request, $id) {
+        $user                        = Position::findOrFail($id);
+
+        $user->position_name          = trim($request->position_name);
+        $user->daily_rate             = trim($request->daily_rate);
+        $user->monthly_rate           = trim($request->monthly_rate);
+        $user->working_days_per_month = trim($request->working_days_per_month);
+        $user->save();
+
+        return redirect('admin/position')->with("success","Position Updated Successfully");
+    }
 }
