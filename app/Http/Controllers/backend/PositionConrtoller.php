@@ -5,6 +5,8 @@ namespace App\Http\Controllers\backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Position;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\PositionExport;
 
 class PositionConrtoller extends Controller
 {
@@ -12,6 +14,11 @@ class PositionConrtoller extends Controller
     public function Index(Request $request) {
         $data['getRecord'] = Position::getRecord($request);
         return view("backend.position.list", $data);
+    }
+
+    //excel export
+    public function Export() {
+        return Excel::download(new PositionExport, 'position.xlsx');
     }
 
     public function Add() {
@@ -59,4 +66,5 @@ class PositionConrtoller extends Controller
 
         return redirect()->back()->with("error","Position Deleted Successfully");
     }
+
 }

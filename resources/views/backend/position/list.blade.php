@@ -12,8 +12,7 @@
             <h1>Position</h1>
           </div><!-- /.col -->
           <div class="col-sm-6" style="text-align: right;">
-            
-
+            <a href="{{ url('admin/position/export') }}" class="btn btn-success">Excel Export</a>
             <br></br>
             <a href="{{ url('admin/position/add') }}" class="btn btn-primary">Add Position</a>
           </div><!-- /.col -->

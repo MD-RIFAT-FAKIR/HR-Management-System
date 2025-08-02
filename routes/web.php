@@ -183,6 +183,9 @@ Route::group(['middleware' => 'admin'], function() {
   Route::get('admin/position/edit/{id}', [PositionConrtoller::class, 'Edit']);
   Route::post('admin/position/update/{id}', [PositionConrtoller::class,'Update']);
   Route::get('admin/position/delete/{id}', [PositionConrtoller::class, 'Delete']);
+  //excel export
+  Route::get('admin/position/export', [PositionConrtoller::class, 'Export']);
+  //end excel export
   //end position all route
 
 });
