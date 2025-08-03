@@ -190,6 +190,14 @@ Route::group(['middleware' => 'admin'], function() {
 
 });
 
+//auth employee
+Route::group(['middleware' => 'employee'], function(){
+    //employee dashboard
+    Route::get('employee/dashboard', [AdminController::class, 'AdminDashboard']);
+    //end employee dashboard
+});
+//end auth employee
+
 //admin logout
 Route::get('logout', [AuthController::class, 'logout']);
 

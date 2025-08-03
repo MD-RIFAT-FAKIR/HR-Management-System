@@ -14,11 +14,14 @@ use App\Models\Department;
 use App\Models\Manager;
 use App\Models\PayRoll;
 use App\Models\Position;
+use Auth;
 
 class AdminController extends Controller
 {
-    public function AdminDashboard()
-    {
+    public function AdminDashboard() {
+
+        if(Auth::user()->is_role == 1) {
+
         $data['employeeCount'] = User::count();
         $data['hrCount'] = User::where('is_role', '=', 1)->count();
         $data['empCount'] = User::where('is_role', '=', 0)->count();
@@ -33,5 +36,9 @@ class AdminController extends Controller
         $data['positionCount'] = Position::count();
 
         return view('backend.dashboard.list', $data);
+        } else if(Auth::user()->is_role == 0) {
+            return view('employee.dashboard.list');
+        }
+
     }
 }
