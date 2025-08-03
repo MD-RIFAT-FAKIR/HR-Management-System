@@ -195,6 +195,7 @@ Route::group(['middleware' => 'employee'], function(){
     //employee dashboard
     Route::get('employee/dashboard', [AdminController::class, 'AdminDashboard']);
     Route::get('employee/my_acount', [MyAcountController::class,'EmployeAcount']);
+    Route::post('employee/my_acount/update', [MyAcountController::class,'UpdateEmp']);
     //end employee dashboard
 });
 //end auth employee

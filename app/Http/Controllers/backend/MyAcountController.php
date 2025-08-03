@@ -40,7 +40,7 @@ class MyAcountController extends Controller
         }
         $user->save();
 
-        return redirect("admin/my_acount")->with("success","My Acount Updated Successfully");
+        return redirect("admin/my_acount")->with("success","Acount Updated Successfully");
 
     }
 
@@ -48,6 +48,35 @@ class MyAcountController extends Controller
     public function EmployeAcount(Request $request) {
         $data['getRecord'] = User::find(Auth::user()->id);
         return view('employee.my_acount.update', $data);
+    }
+
+    public function UpdateEmp(Request $request) {
+
+        $request->validate([
+            "email"=> "required|unique:users,email,".Auth::user()->id,
+        ]);
+
+
+        $user                = User::find(Auth::user()->id);
+        $user->name           = trim($request->name);
+        $user->email          = trim($request->email);
+        if(!empty($request->file('profile_img'))) {
+            if(!empty($user->profile_img) && file_exists('upload/'.$user->profile_img)) {
+                unlink('upload/'.$user->profile_img);
+            }
+            $file             = $request->file('profile_img');
+            $strRandom       = Str::random(30);
+            $fileName         = $strRandom.'.'.$file->getClientOriginalExtension();
+            $file->move('upload/', $fileName);
+            $user->profile_img = $fileName;
+        }
+        if(!empty($request->password)) {
+            $user->password = bcrypt($request->password);
+        }
+        $user->save();
+
+        return redirect("employee/my_acount")->with("success","Acount Updated Successfully");
+
     }
     //end employee acount
 }

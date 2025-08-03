@@ -31,7 +31,7 @@
               <div class="card-header">
                 <h3 class="card-title">My Acount</h3>
               </div>
-              <form class="form-horaizontal" action="{{ url('admin/my_acount/update') }}" method="post" enctype="multipart/form-data">
+              <form class="form-horaizontal" action="{{ url('employee/my_acount/update') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="card-body">
                   <div class="form-gorup row mt-2">
@@ -79,7 +79,7 @@
                     </div>
                   </div>
                   <div class="card-footer">
-                    <a href="{{ url('admin/my_acount') }}" class="btn btn-default">Back</a>
+                    <a href="{{ url('employee/my_acount') }}" class="btn btn-default">Back</a>
                     <button type="submit" class="btn btn-primary float-right">Update</button>
                   </div>
                 </div>

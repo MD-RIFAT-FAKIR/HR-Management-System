@@ -159,7 +159,7 @@
           @endif
           @if(Auth::user()->is_role == '0')
           <li class="nav-item">
-            <a href="{{ url('admin/dashboard') }}" class="nav-link {{ (Request::segment(2) == 'dashboard') ? 'active' : ''}} ">
+            <a href="{{ url('employee/dashboard') }}" class="nav-link {{ (Request::segment(2) == 'dashboard') ? 'active' : ''}} ">
               <i class="fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
