@@ -43,4 +43,11 @@ class MyAcountController extends Controller
         return redirect("admin/my_acount")->with("success","My Acount Updated Successfully");
 
     }
+
+    //start employee acount 
+    public function EmployeAcount(Request $request) {
+        $data['getRecord'] = User::find(Auth::user()->id);
+        return view('employee.my_acount.update', $data);
+    }
+    //end employee acount
 }

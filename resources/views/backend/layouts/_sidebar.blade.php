@@ -51,6 +51,7 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
+          @if(Auth::user()->is_role == '1')
           <li class="nav-item">
             <a href="{{ url('admin/dashboard') }}" class="nav-link {{ (Request::segment(2) == 'dashboard') ? 'active' : ''}} ">
               <i class="fas fa-tachometer-alt"></i>
@@ -154,7 +155,26 @@
                Position
               </p>
             </a>
-          </li>       
+          </li>  
+          @endif
+          @if(Auth::user()->is_role == '0')
+          <li class="nav-item">
+            <a href="{{ url('admin/dashboard') }}" class="nav-link {{ (Request::segment(2) == 'dashboard') ? 'active' : ''}} ">
+              <i class="fas fa-tachometer-alt"></i>
+              <p>
+                Dashboard
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ url('employee/my_acount') }}" class="nav-link {{ (Request::segment(2)) == 'my_acount' ? 'active' : '' }}">
+              <i class="nav-icon fa fa-cog"></i>
+              <p>
+                My Acount
+              </p>
+            </a>
+          </li> 
+          @endif     
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
