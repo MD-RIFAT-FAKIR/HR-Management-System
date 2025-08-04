@@ -135,6 +135,19 @@
                 </div>
               </div>
               <div class="form-gorup row mt-2">
+                <label class="col-sm-2 col-form-table">Interview<span style="color: red;"></span>                    
+                </label>
+                <div class="col-sm-10">
+                  @if($employee->interview == 0)
+                    <span class="badge bg-danger">Cancel</span>
+                    @elseif($employee->interview == 1)
+                    <span class="badge bg-secondary">Pending</span>
+                    @else
+                    <span class="badge bg-success">Completed</span>
+                  @endif
+                </div>
+              </div>
+              <div class="form-gorup row mt-2">
                 <label class="col-sm-2 col-form-table">Crited Date<span style="color: red;"></span>                    
                 </label>
                 <div class="col-sm-10">
