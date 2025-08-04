@@ -167,6 +167,14 @@
             </a>
           </li>
           <li class="nav-item">
+            <a href="{{ url('employee/interview') }}" class="nav-link {{ (Request::segment(2) == 'interview') ? 'active' : ''}} ">
+              <i class="fas fa-school"></i>
+              <p>
+                Interview
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
             <a href="{{ url('employee/my_acount') }}" class="nav-link {{ (Request::segment(2)) == 'my_acount' ? 'active' : '' }}">
               <i class="nav-icon fa fa-cog"></i>
               <p>
