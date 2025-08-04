@@ -43,13 +43,29 @@
                     <tr>
                       <th>ID</th>
                       <th>Name</th>
+                      <th>Salary</th>
+                      <th>Interview</th>
                       <th>Created At</th>
-                      <th>Actions</th>
+                      <th>Updated At</th>
                     </tr>
                   </thead>
                   <tbody>
-                  
-
+                  <tr>
+                    <td>{{ $getRecord->id }}</td>
+                    <td>{{ $getRecord->name }}</td>
+                    <td>{{ $getRecord->salary }}</td>
+                    <td>
+                      @if($getRecord->interview == 0)
+                          <span class="badge bg-danger">Cancel</span>
+                          @elseif($getRecord->interview == 1)
+                          <span class="badge bg-secondary">Pending</span>
+                          @else
+                          <span class="badge bg-success">Completed</span>
+                      @endif
+                    </td>
+                    <td>{{ date('d-m-Y H:i A', strtotime($getRecord->created_at)) }}</td>
+                    <td>{{ date('d-m-Y H:i A', strtotime($getRecord->updated_at)) }}</td>
+                  </tr>
                   </tbody>
                 </table>
                 <div style="padding: 10px; float: right;">
