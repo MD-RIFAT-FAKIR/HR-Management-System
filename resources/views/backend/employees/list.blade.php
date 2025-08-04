@@ -86,6 +86,7 @@
                         <th>Last Name</th>
                         <th>Email</th>
                         <th class="text-center">Profile</th>
+                        <th class="text-center">Interview</th>
                         <th class="text-center">Role</th>
                         <th class="text-center" style="width: 200px;">Actions</th>
                       </tr>
@@ -102,6 +103,15 @@
                             <img class="img-thumbnail" style="width:60px; height: 60px; object-fit: cover;" src="{{ url('upload/'.$value->profile_img) }}">
                           @else
                             <span class="badge bg-secondary">No Image</span>
+                          @endif
+                        </td>
+                        <td>
+                          @if($value->interview == 0)
+                          <span class="badge bg-danger">Cancel</span>
+                          @elseif($value->interview == 1)
+                          <span class="badge bg-secondary">Pending</span>
+                          @else
+                          <span class="badge bg-success">Completed</span>
                           @endif
                         </td>
                         <td class="text-center">
