@@ -153,6 +153,18 @@
                       </select>
                     </div>
                   </div>
+                  <div class="form-gorup row mt-2">
+                    <label class="col-sm-2 col-form-table">Interview Status<span style="color: red;">*</span>                    
+                    </label> 
+                    <div class="col-sm-10">
+                      <select class="form-control" name="interview" required>
+                        <option value="">---  Select Interview Status  ---</option>
+                        <option {{ ($employee->interview == '0') ? 'selected' : '' }} value="0">Cancel</option>
+                        <option {{ ($employee->interview == '1') ? 'selected' : '' }} value="1">Pending</option>
+                        <option {{ ($employee->interview == '2') ? 'selected' : '' }} value="2">Completed</option>
+                      </select>
+                    </div>
+                  </div>
                   <div class="card-footer">
                     <a href="{{ url('admin/employees') }}" class="btn btn-default">Back</a>
                     <button type="submit" class="btn btn-primary float-right">Update</button>
