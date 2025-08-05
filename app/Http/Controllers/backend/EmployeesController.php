@@ -12,6 +12,9 @@ use App\Models\Position;
 use Str;
 use File;
 use Hash;
+use App\Mail\UserProfileMail;
+use Mail;
+
 
 class EmployeesController extends Controller
 {
@@ -49,7 +52,6 @@ class EmployeesController extends Controller
         $user->last_name      = trim($request->last_name);
         $user->phone_number   = trim($request->phone_number);
         $user->email          = trim($request->email);
-        $user->password       = Hash::make($request->password);
         $user->hire_date      = trim($request->hire_date);
         $user->salary         = trim($request->salary);
         $user->job_id         = trim($request->job_id);
@@ -58,6 +60,9 @@ class EmployeesController extends Controller
         $user->department_id  = trim($request->department_id);
         $user->position_id    = trim($request->position_id);
         $user->is_role        = 0;
+
+        $random_password     = $request->password;
+        $user->password       = $random_password;
         if(!empty($request->file('profile_img'))) {
             $file             = $request->file('profile_img');
             $strRandom       = Str::random(30);
@@ -66,6 +71,9 @@ class EmployeesController extends Controller
             $user->profile_img = $fileName;
         }
         $user->save();
+
+        $user->random_password = $request->password;
+        Mail::to($user->email)->send(new UserProfileMail($user));
 
         return redirect('admin/employees')->with('success', 'Employee Registered Successfully');
 

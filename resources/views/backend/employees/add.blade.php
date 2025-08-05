@@ -60,7 +60,7 @@
                     </label>
                     <div class="col-sm-10">
                       <input class="form-control" type="password" name="password" placeholder="Enter Password" required>
-                      <span style="color: red;">{{ $errors->first('email') }}</span>
+                      <span style="color: red;">{{ $errors->first('password') }}</span>
                     </div>
                   </div>
                   <div class="form-gorup row mt-2">
