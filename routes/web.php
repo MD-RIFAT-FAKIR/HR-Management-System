@@ -32,6 +32,7 @@ Route::get('/', [AuthController::class, 'index']);
 
 //forgot password
 Route::get('forgot-password', [AuthController::class, 'ForgotPassword']);
+Route::post('forgot-password/post', [AuthController::class,'ForgotPasswordPost']);
 //register
 Route::get('register', [AuthController::class, 'Register']);
 //store register
